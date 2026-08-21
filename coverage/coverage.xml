@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage line-rate="0.714" branch-rate="0.75" lines-covered="10" lines-valid="14"
+          branches-covered="3" branches-valid="4" complexity="0" version="1.9" timestamp="1755500000">
+  <sources>
+    <source>.</source>
+  </sources>
+  <packages>
+    <package name="demo" line-rate="0.714" branch-rate="0.75" complexity="0">
+      <classes>
+        <class name="calc.c" filename="src/calc.c" line-rate="0.714" branch-rate="0.75" complexity="0">
+          <methods>
+            <method name="add" signature="(II)I">
+              <lines>
+                <line number="4" hits="1"/>
+                <line number="5" hits="1"/>
+              </lines>
+            </method>
+            <method name="subtract" signature="(II)I">
+              <lines>
+                <line number="8" hits="1"/>
+                <line number="9" hits="1"/>
+              </lines>
+            </method>
+            <method name="classify" signature="(I)I">
+              <lines>
+                <line number="13" hits="1"/>
+                <line number="14" hits="1"/>
+              </lines>
+            </method>
+            <method name="gate" signature="(III)I">
+              <lines>
+                <line number="22" hits="2"/>
+                <line number="23" hits="2"/>
+              </lines>
+            </method>
+            <method name="unused_helper" signature="(I)I">
+              <lines>
+                <line number="30" hits="0"/>
+                <line number="31" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="4" hits="1"/>
+            <line number="5" hits="1"/>
+            <line number="8" hits="1"/>
+            <line number="9" hits="1"/>
+            <line number="13" hits="1"/>
+            <line number="14" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="15" hits="1"/>
+            <line number="17" hits="0"/>
+            <line number="22" hits="2"/>
+            <line number="23" hits="2" branch="true" condition-coverage="75% (3/4)"/>
+            <line number="24" hits="2"/>
+            <line number="26" hits="0"/>
+            <line number="30" hits="0"/>
+            <line number="31" hits="0"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

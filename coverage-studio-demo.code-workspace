@@ -1,0 +1,17 @@
+{
+  "folders": [
+    { "path": "." }
+  ],
+  "settings": {
+    "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
+    "fuciniCoverage.coverageFile.paths": ["lcov.info"],
+    "fuciniCoverage.watch.enabled": true,
+    "fuciniCoverage.history.enabled": true,
+    "fuciniCoverage.mcdcGutter.enabled": true,
+    "fuciniCoverage.telemetry.enabled": false,
+    "fuciniCoverage.telemetry.developerMode": false
+  },
+  "extensions": {
+    "recommendations": ["fucini-software.coverage-studio-vscode"]
+  }
+}
