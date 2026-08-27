@@ -5,9 +5,15 @@
   // so coverage.json/lcov.info here are found without scanning the whole
   // workspace root.
   "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
-  // Load the ready-made lcov.info so gutters/CodeLens/report appear
+  // Load the ready-made llvm-cov JSON so gutters/CodeLens/report appear
   // immediately, no "Load Coverage" step needed on first open.
-  "fuciniCoverage.coverageFile.paths": ["lcov.info"],
+  //
+  // coverage.json rather than lcov.info because LCOV cannot carry regions,
+  // instantiations or MC/DC — and MC/DC is the whole point of `buffer.c`'s
+  // `buffer_can_write`, which every other metric reports as healthy. Both
+  // files come from the same build (see scripts/gen-coverage), so switching
+  // this to ["lcov.info"] shows the same code measured the poorer way.
+  "fuciniCoverage.coverageFile.paths": ["coverage.json"],
   // Auto-reload when a tracefile here changes — handy while re-running
   // scripts/gen-coverage.(sh|ps1) to try a different compiler.
   "fuciniCoverage.watch.enabled": true,
