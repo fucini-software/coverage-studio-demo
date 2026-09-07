@@ -22,5 +22,14 @@
   "fuciniCoverage.history.enabled": true,
   // Show the MC/DC decision-coverage gutter bar — off by default in real
   // projects, on here so the demo showcases it without extra clicks.
-  "fuciniCoverage.mcdcGutter.enabled": true
+  "fuciniCoverage.mcdcGutter.enabled": true,
+  // Since 0.2026.69 the editor gutter shows only findings by default
+  // (since-last-run marks, edited-line dots, MC/DC bars) and nothing on a
+  // plainly covered or uncovered line — the colour-coded view lives in the
+  // Annotated Source. The demo turns the gutter's heatmap on and puts the
+  // hit count after each line, so a first open of calc.c shows what ran,
+  // how often, and what never did. "uncovered" is the calmer alternative:
+  // bars on never-run lines only.
+  "fuciniCoverage.editorGutter.mode": "heatmap",
+  "fuciniCoverage.hitCounts.inline": true
 }

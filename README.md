@@ -7,8 +7,8 @@ the extension's features in a couple of minutes:
 
 | Function | File | State | Shows off |
 | --- | --- | --- | --- |
-| `add`, `subtract` | `calc.c` | fully covered | green gutters + hit counts |
-| `classify` | `calc.c` | partial | red gutter on the untested `else` |
+| `add`, `subtract` | `calc.c` | fully covered | heatmap gutter + inline `×1` hit counts |
+| `classify` | `calc.c` | partial | red bar on the untested `else`, amber on the half-taken `if` |
 | `gate` | `calc.c` | **MC/DC satisfied** | every condition shown to matter on its own — 3/3 |
 | `unused_helper` | `calc.c` | never called | dead-code warning, 0% CodeLens |
 | `buffer_init`, `buffer_push` | `buffer.c` | covered, both outcomes | branch coverage on a bounds check |
@@ -34,6 +34,10 @@ same shape of decision tested properly, so the report shows one of each.
    (watch mode is on). If not, run **`Fucini Coverage: Load Coverage`**.
 4. Open [`src/calc.c`](src/calc.c) or [`src/buffer.c`](src/buffer.c) — gutters,
    CodeLens and the status bar appear right away, no build step needed.
+   The demo's [`.vscode/settings.json`](.vscode/settings.json) switches the
+   gutter to its heatmap and puts the hit count after each line; out of the
+   box the gutter shows only findings, and the colour-coded view of a file is
+   **Open Annotated Source**.
 
 From there, try opening `gate`'s decision on line 23 to see the MC/DC hover
 breakdown, or run **`Fucini Coverage: Generate Full HTML Report`** to see the
