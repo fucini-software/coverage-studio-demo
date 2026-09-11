@@ -47,7 +47,7 @@ self-rendered report. The overall run is **NON-COMPLIANT** out of the box
 
 ## Ready-made tracefiles
 
-Three formats are included, so everything above works with no compiler
+Four tracefiles are included, so everything above works with no compiler
 toolchain installed:
 
 - `coverage/coverage.json` — llvm-cov JSON (loaded by default). The only one
@@ -57,6 +57,11 @@ toolchain installed:
   to see exactly what those metrics stop telling you.
 - `coverage/coverage.xml` — Cobertura. Point `fuciniCoverage.coverageFile.paths`
   at more than one to see a deterministic **merge** of formats into one run.
+- `coverage/per-test.info` — LCOV with one section per test: the calc half and
+  the buffer half of `src/calc_test.c`, each built and run on its own
+  (`TN:calc`, `TN:buffer`). Point `fuciniCoverage.coverageFile.paths` at it to
+  filter coverage **by test** in VS Code's Test Coverage view, or load it
+  beside `lcov.info` to see which report covered each line.
 
 ## Regenerating coverage yourself (optional)
 
@@ -68,13 +73,17 @@ llvm-cov output (regions, C++ instantiations and real **MC/DC**):
 # macOS/Linux
 ./scripts/gen-coverage.sh clang   # -> coverage/coverage.json (llvm-cov + MC/DC)
 ./scripts/gen-coverage.sh gcc     # -> coverage/lcov.info
+./scripts/gen-coverage.sh clang --per-test   # also coverage/per-test.info
 ```
 
 ```powershell
 # Windows
 .\scripts\gen-coverage.ps1 clang
 .\scripts\gen-coverage.ps1 gcc
+.\scripts\gen-coverage.ps1 clang -PerTest    # also coverage\per-test.info
 ```
 
 The clang mode writes `coverage.json` and `lcov.info` together, from one run,
-so the two never drift apart.
+so the two never drift apart. The per-test option builds the test program twice
+more, once per half of the suite, so each `TN:` section is a real run of that
+half rather than numbers split out of the combined one.

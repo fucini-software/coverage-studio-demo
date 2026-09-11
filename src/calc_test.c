@@ -2,7 +2,11 @@
 #include "buffer.h"
 #include <assert.h>
 
+/* Built whole by default. scripts/gen-coverage -PerTest builds it twice, once
+   with TEST_CALC_ONLY and once with TEST_BUFFER_ONLY, so each half of the
+   suite gets a coverage record of its own (lcov TN:calc and TN:buffer). */
 int main(void) {
+#ifndef TEST_BUFFER_ONLY
     assert(add(2, 3) == 5);
     assert(subtract(5, 2) == 3);
     assert(classify(10) == 1);   /* only the positive path is exercised */
@@ -13,12 +17,15 @@ int main(void) {
     assert(gate(1, 0, 0) == 0);  /* b alone flips it */
     assert(gate(0, 0, 1) == 1);  /* c alone flips it */
     assert(gate(0, 0, 0) == 0);  /* all false       */
+#endif
 
+#ifndef TEST_CALC_ONLY
     buffer_t b;
     buffer_init(&b, 2);
     assert(buffer_push(&b, 10) == 1);
     assert(buffer_push(&b, 20) == 1);
     assert(buffer_push(&b, 30) == 0);      /* refused: buffer full */
     assert(buffer_can_write(&b, 1) == 1);  /* only ever reached with force set */
+#endif
     return 0;
 }
