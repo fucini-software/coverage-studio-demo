@@ -13,8 +13,13 @@ An optional argument narrows the run to one test class, which is how the
 generator produces a report per suite: `run_tests.py PostingTests`.
 """
 
+import os
 import sys
 import unittest
+
+# An embedded Python runs isolated and leaves the script's own folder off the
+# module path, so `tests` and `ledger` would only be importable by accident.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 
 def main(argv):
