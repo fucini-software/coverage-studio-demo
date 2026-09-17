@@ -61,3 +61,16 @@ ENV GOFLAGS=-buildvcs=false \
     GOCACHE=/tmp/go-cache
 WORKDIR /work
 ENTRYPOINT ["/bin/sh"]
+
+# ---- .NET: Coverlet (OpenCover, Cobertura) and dotnet-coverage ---------------
+# dotnet-coverage is a global tool; it is installed for every user of the image
+# because the generators run as the caller's uid, not as root.
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS dotnet
+ENV DOTNET_CLI_TELEMETRY_OPTOUT=1 \
+    DOTNET_NOLOGO=1 \
+    DOTNET_CLI_HOME=/tmp \
+    NUGET_PACKAGES=/tmp/nuget
+RUN dotnet tool install dotnet-coverage --tool-path /opt/dotnet-tools
+ENV PATH="/opt/dotnet-tools:${PATH}"
+WORKDIR /work
+ENTRYPOINT ["/bin/sh"]

@@ -5,7 +5,8 @@
   "folders": [
     { "name": "C (llvm-cov, lcov, MC/DC)", "path": "samples/c" },
     { "name": "JavaScript (Istanbul)", "path": "samples/js" },
-    { "name": "Python (coverage.py)", "path": "samples/python" }
+    { "name": "Python (coverage.py)", "path": "samples/python" },
+    { "name": ".NET (Coverlet, dotnet-coverage)", "path": "samples/dotnet" }
   ],
   "settings": {
     "fuciniCoverage.watch.enabled": true,

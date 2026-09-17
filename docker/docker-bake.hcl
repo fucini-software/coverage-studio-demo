@@ -10,7 +10,7 @@
 //   docker buildx bake -f docker/docker-bake.hcl js     # one
 
 group "default" {
-  targets = ["c", "js", "python", "go"]
+  targets = ["c", "js", "python", "go", "dotnet"]
 }
 
 target "_lab" {
@@ -40,4 +40,10 @@ target "go" {
   inherits = ["_lab"]
   target   = "go"
   tags     = ["coverage-studio-lab:go"]
+}
+
+target "dotnet" {
+  inherits = ["_lab"]
+  target   = "dotnet"
+  tags     = ["coverage-studio-lab:dotnet"]
 }

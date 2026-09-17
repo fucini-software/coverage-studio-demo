@@ -1,0 +1,15 @@
+{
+  // .NET sample settings for Fucini Coverage Studio.
+
+  "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
+  // Coverlet's OpenCover output rather than its Cobertura: it keeps a visit
+  // count per branch arm, where Cobertura flattens a decision into "50% (1/2)".
+  // Both carry the per-method cyclomatic complexity that the CRAP score and the
+  // Riskiest Methods table are computed from.
+  "fuciniCoverage.coverageFile.paths": ["coverage.opencover.xml"],
+  // The reports were generated in the lab image, where this repository is
+  // mounted at /work. This maps that prefix back to wherever you cloned it.
+  "fuciniCoverage.pathRemap": [{ "from": "/work/samples/dotnet", "to": "${workspaceFolder}" }],
+  "fuciniCoverage.watch.enabled": true,
+  "fuciniCoverage.history.enabled": true
+}
