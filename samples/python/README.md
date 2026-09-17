@@ -1,7 +1,7 @@
 # Python sample
 
-A small double-entry ledger with two test classes, measured by coverage.py with
-branch coverage on. 81% of `ledger.py` by the tool's own count.
+A small double-entry ledger with three test classes, measured by coverage.py with
+branch coverage on: 81% of `ledger.py` and 72% of `reconcile.py` by the tool's own count.
 
 coverage.py records *whether* a line ran, never how often. The extension knows
 that about this format: the hover says **Covered**, not "1 hit", and the
@@ -9,12 +9,20 @@ annotated source shows `✓` where other formats show a count.
 
 | Where | What the tests leave behind | What shows it |
 | --- | --- | --- |
-| `ledger.py` line 20, `post` | nothing is ever posted to a closed ledger | uncovered line, half-taken `if` on line 19 |
-| line 43, `classify` | no amount reaches the last band | the final `return` uncovered |
-| line 48, `close` | an unbalanced ledger is never closed | the exception path uncovered |
-| lines 61 to 64, `export_csv` | never called | 0% CodeLens, dead-code warning |
+| `ledger.py` line 40, `post` | nothing is ever posted to a closed ledger | uncovered line, half-taken `if` on line 39 |
+| line 73, `classify` | no amount reaches the last band | the final `return` uncovered |
+| line 83, `close` | an unbalanced ledger is never closed | the exception path uncovered |
+| lines 105 to 108, `export_csv` | never called | 0% CodeLens, dead-code warning |
 | `debug_dump` | `# pragma: no cover` | grey `excl` rows in the annotated source |
+| `reconcile.py` lines 26 to 27, `parse_amount` | every amount is well formed | an `except` that never fires |
+| line 44, `find_entry` | the search always succeeds | the `else` of a `for` loop never runs |
+| lines 58 to 59, `settle` | the ledger already balances | a `while` that is never entered |
+| lines 73 and 78, `unmatched` | never an empty statement, never a miss | a guard and a result nobody triggers |
 | `archive.py` | imported by nothing | not in the report at all: unmeasured, not uncovered |
+
+Every file carries a Doxygen header, and every class, method and function is
+documented with `@param`, `@return` and a note on why its gap is deliberate;
+doxygen runs over the sample without a warning.
 
 ## The reports
 
@@ -24,8 +32,9 @@ annotated source shows `✓` where other formats show a count.
 
 - `coverage/coverage.json`: coverage.py JSON, loaded by default.
 - `coverage/coverage.xml`, `coverage/lcov.info`: the same run as Cobertura and LCOV.
-- `coverage/posting/` and `coverage/closing/`: each test class on its own.
-  Only `ClosingTests` reaches `close` and `memo_index`.
+- `coverage/posting/`, `coverage/closing/` and `coverage/reconcile/`: each test
+  class on its own. Only `ClosingTests` reaches `close` and `memo_index`, and
+  only `ReconcileTests` loads `reconcile.py` at all.
 
 ## Regenerating
 

@@ -1,3 +1,10 @@
+## @file run_tests.py
+#  @brief Runs the test suite in-process, so coverage.py starts the same way on every Python.
+#
+#  @author Mario Fucini
+#  @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+#             License; see the LICENSE file in the repository root.
+
 """Run the test suite in-process: `coverage run --branch run_tests.py`.
 
 A script rather than `-m unittest`, so coverage.py starts the same way on every
@@ -11,6 +18,11 @@ import unittest
 
 
 def main(argv):
+    """! @brief Run the whole suite, or one test class of it.
+
+    @param argv  The command line; an optional second element names a test class.
+    @return 0 when every test passed, otherwise 1.
+    """
     loader = unittest.TestLoader()
     if len(argv) > 1:
         suite = loader.loadTestsFromName(f"tests.test_ledger.{argv[1]}")
