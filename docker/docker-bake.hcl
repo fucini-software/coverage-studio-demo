@@ -1,4 +1,10 @@
-// One target per stage of docker/Dockerfile. Run from the repository root:
+// @file docker-bake.hcl
+// @brief One build target per stage of docker/Dockerfile.
+// @author Mario Fucini
+// @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+//            License; see the LICENSE file in the repository root.
+//
+// Run from the repository root:
 //
 //   docker buildx bake -f docker/docker-bake.hcl        # all of them
 //   docker buildx bake -f docker/docker-bake.hcl js     # one

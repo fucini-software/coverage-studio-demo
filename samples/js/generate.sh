@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
-# Regenerate this sample's coverage reports.
+# @file generate.sh
+# @brief Regenerate the JavaScript sample's coverage reports. Runs in the lab image (target `js`).
+# @author Mario Fucini
+# @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+#            License; see the LICENSE file in the repository root.
 #
 #   coverage/coverage-final.json   Istanbul JSON: statement columns, named branch types
 #   coverage/lcov.info             the same run as LCOV

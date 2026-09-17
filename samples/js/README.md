@@ -24,6 +24,7 @@ done, and that difference is what this sample is for.
 
 Every source file carries a JSDoc header and documents its parameters and
 return values, and says on the function itself why its gap is deliberate.
+
 ## The reports
 
 > Not committed yet: they are written by the first run of the lab image, so

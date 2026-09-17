@@ -1,5 +1,13 @@
 # syntax=docker/dockerfile:1.7
 #
+# (The line above is a parser directive and must stay first.)
+#
+# @file Dockerfile
+# @brief The coverage lab: one stage per language.
+# @author Mario Fucini
+# @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+#            License; see the LICENSE file in the repository root.
+#
 # The coverage lab: one stage per language, each a small image of its own with
 # exactly the toolchain that sample needs. A change to the Ruby stage rebuilds
 # nothing of Java's. Build them with the bake file beside this one:

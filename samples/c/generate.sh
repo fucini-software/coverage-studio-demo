@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
-# Regenerate every report of the C sample. Runs in the lab image (target `c`).
+# @file generate.sh
+# @brief Regenerate every report of the C sample. Runs in the lab image (target `c`).
+# @author Mario Fucini
+# @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+#            License; see the LICENSE file in the repository root.
 #
 # Two real builds of the same sources:
 #

@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
-# Regenerate every sample's reports, each in the lab image built for it.
+# @file generate-all.sh
+# @brief Regenerate every sample's reports, each in the lab image built for it.
+# @author Mario Fucini
+# @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+#            License; see the LICENSE file in the repository root.
 #
 #   scripts/generate-all.sh            # every sample that has a generator
 #   scripts/generate-all.sh js go      # only these
