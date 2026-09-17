@@ -1,7 +1,15 @@
+/**
+ * @file The integration suite: one whole order, end to end.
+ *
+ * It is the only thing that reaches pricing.js's quote(), and it reaches it
+ * exactly one way.
+ *
+ * @author Mario Fucini
+ * @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+ *            License; see the LICENSE file in the repository root.
+ * @license MIT
+ */
 'use strict';
-
-// The integration suite: one whole order, end to end. It is the only thing
-// that reaches pricing.js's quote(), and it reaches it exactly one way.
 
 const test = require('node:test');
 const assert = require('node:assert');
