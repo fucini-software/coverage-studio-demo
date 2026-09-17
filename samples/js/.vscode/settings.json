@@ -10,7 +10,7 @@
   "fuciniCoverage.coverageFile.paths": ["coverage-final.json"],
   // The reports were generated in the lab image, where this repository is
   // mounted at /work. This maps that prefix back to wherever you cloned it.
-  "fuciniCoverage.pathRemap": [{ "from": "/work/samples/js", "to": "${workspaceFolder}" }],
+  "fuciniCoverage.pathRemap": [{ "from": "/work/samples/js", "to": "${workspaceRoot}" }],
   // src/legacy.js is required by nothing, so no report mentions it. "list"
   // shows it as not measured instead of leaving it out in silence.
   "fuciniCoverage.unmeasured.mode": "list",

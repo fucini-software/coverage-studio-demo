@@ -8,7 +8,7 @@
   "fuciniCoverage.coverageFile.paths": ["coverage.json"],
   // The reports were generated in the lab image, where this repository is
   // mounted at /work. This maps that prefix back to wherever you cloned it.
-  "fuciniCoverage.pathRemap": [{ "from": "/work/samples/python", "to": "${workspaceFolder}" }],
+  "fuciniCoverage.pathRemap": [{ "from": "/work/samples/python", "to": "${workspaceRoot}" }],
   // ledger/archive.py is imported by nothing, so no report mentions it.
   "fuciniCoverage.unmeasured.mode": "list",
   "fuciniCoverage.watch.enabled": true,

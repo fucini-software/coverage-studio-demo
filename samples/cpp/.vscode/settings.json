@@ -13,9 +13,9 @@
   "fuciniCoverage.pathRemap": [
     // TRACE32 names modules, not files: this is how the module "gearbox"
     // becomes the source file the other reports are about.
-    { "from": "gearbox", "to": "${workspaceFolder}/src/gearbox.cpp" },
+    { "from": "gearbox", "to": "${workspaceRoot}/src/gearbox.cpp" },
     // For reports generated in the lab image, where the repository is at /work.
-    { "from": "/work/samples/cpp", "to": "${workspaceFolder}" }
+    { "from": "/work/samples/cpp", "to": "${workspaceRoot}" }
   ],
 
   // The composite score's weights, written out so they can be played with.
