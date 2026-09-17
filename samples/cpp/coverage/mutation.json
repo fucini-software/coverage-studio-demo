@@ -1,0 +1,24 @@
+{
+  "_note": "ILLUSTRATIVE, not the output of a tool run. Written by hand in the mutation-testing-elements schema (the one Stryker and Mull emit), with each status reasoned from gearbox_test.cpp: a boundary mutant survives because no check sits on the boundary, a mutant in code no test reaches has no coverage. It is here so the sample can show a mutation score beside the compiler's metrics; the lab image is to replace it with a real Mull run. See ../README.md.",
+  "schemaVersion": "1",
+  "thresholds": { "high": 80, "low": 60 },
+  "files": {
+    "src/gearbox.cpp": {
+      "language": "cpp",
+      "mutants": [
+        { "id": "1", "mutatorName": "ConditionalBoundary", "replacement": "value <= lo", "status": "Survived", "location": { "start": { "line": 26, "column": 9 }, "end": { "line": 26, "column": 19 } } },
+        { "id": "2", "mutatorName": "ConditionalBoundary", "replacement": "value >= hi", "status": "Survived", "location": { "start": { "line": 29, "column": 12 }, "end": { "line": 29, "column": 22 } } },
+        { "id": "3", "mutatorName": "ConditionalBoundary", "replacement": "rpm >= 3000", "status": "Survived", "location": { "start": { "line": 34, "column": 10 }, "end": { "line": 34, "column": 20 } } },
+        { "id": "4", "mutatorName": "ConditionalBoundary", "replacement": "throttle >= 50", "status": "Survived", "location": { "start": { "line": 34, "column": 24 }, "end": { "line": 34, "column": 37 } } },
+        { "id": "5", "mutatorName": "LogicalOperator", "replacement": "rpm > 3000 || throttle > 50", "status": "Killed", "location": { "start": { "line": 34, "column": 10 }, "end": { "line": 34, "column": 37 } } },
+        { "id": "6", "mutatorName": "LogicalOperator", "replacement": "(...) && manual", "status": "Killed", "location": { "start": { "line": 34, "column": 9 }, "end": { "line": 34, "column": 48 } } },
+        { "id": "7", "mutatorName": "BooleanLiteral", "replacement": "return false", "status": "Killed", "location": { "start": { "line": 35, "column": 9 }, "end": { "line": 35, "column": 21 } } },
+        { "id": "8", "mutatorName": "BooleanLiteral", "replacement": "return true", "status": "Killed", "location": { "start": { "line": 37, "column": 5 }, "end": { "line": 37, "column": 18 } } },
+        { "id": "9", "mutatorName": "ArithmeticOperator", "replacement": "current - 1", "status": "Killed", "location": { "start": { "line": 42, "column": 23 }, "end": { "line": 42, "column": 34 } } },
+        { "id": "10", "mutatorName": "ArithmeticOperator", "replacement": "current + 1", "status": "NoCoverage", "location": { "start": { "line": 42, "column": 37 }, "end": { "line": 42, "column": 48 } } },
+        { "id": "11", "mutatorName": "ArithmeticOperator", "replacement": "1.0 + gear * 0.12", "status": "NoCoverage", "location": { "start": { "line": 48, "column": 29 }, "end": { "line": 48, "column": 46 } } },
+        { "id": "12", "mutatorName": "IntegerLiteral", "replacement": "return 0", "status": "NoCoverage", "location": { "start": { "line": 53, "column": 5 }, "end": { "line": 53, "column": 14 } } }
+      ]
+    }
+  }
+}

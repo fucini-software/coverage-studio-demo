@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--
+  ILLUSTRATIVE, not an export from a TRACE32 session.
+
+  Written by hand in the schema of Lauterbach's COVerage.EXPORT.ListModule with
+  metric="object": how many of a module's instruction bytes were executed. The
+  byte counts are plausible for gearbox.cpp (14 of its 22 lines run) and were
+  not measured. It is here so the sample can show object-code coverage, the
+  DO-178C level A criterion, beside the compiler's metrics; a real export from
+  the TRACE32 simulator is to replace it. See ../README.md.
+
+  TRACE32 names modules, not files: .vscode/settings.json maps the module
+  "gearbox" to src/gearbox.cpp with a fuciniCoverage.pathRemap rule.
+-->
+<TRACE32 file="coverage/trace32-object.xml">
+	<coverage>
+		<COVerage.EXPORT.ListModule metric="object">
+			<module>
+				<tree>\\gearbox_demo\gearbox</tree>
+				<exec metric="object">62.712%</exec>
+				<bytes>236</bytes>
+				<bytesok>148</bytesok>
+			</module>
+		</COVerage.EXPORT.ListModule>
+	</coverage>
+</TRACE32>

@@ -1,0 +1,43 @@
+{
+  // C++ sample settings for Fucini Coverage Studio: one file, every metric.
+
+  "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
+  // Four reports about the same file, merged into one record:
+  //   coverage.json       llvm-cov: functions, lines, regions, branches, MC/DC,
+  //                       template instantiations
+  //   trace32-call.xml    function calls   (illustrative, see README.md)
+  //   trace32-object.xml  object code      (illustrative, see README.md)
+  //   mutation.json       mutation score   (illustrative, see README.md)
+  // Remove any of the last three to watch its row, column and badge disappear.
+  "fuciniCoverage.coverageFile.paths": ["coverage.json", "trace32-call.xml", "trace32-object.xml", "mutation.json"],
+  "fuciniCoverage.pathRemap": [
+    // TRACE32 names modules, not files: this is how the module "gearbox"
+    // becomes the source file the other reports are about.
+    { "from": "gearbox", "to": "${workspaceFolder}/src/gearbox.cpp" },
+    // For reports generated in the lab image, where the repository is at /work.
+    { "from": "/work/samples/cpp", "to": "${workspaceFolder}" }
+  ],
+
+  // The composite score's weights, written out so they can be played with.
+  // These are the defaults: the weight follows the assurance level a metric is
+  // asked for at (MC/DC highest), and a metric the run does not carry is left
+  // out and the rest renormalise.
+  "fuciniCoverage.whmWeights.lines": 1,
+  "fuciniCoverage.whmWeights.functions": 1,
+  "fuciniCoverage.whmWeights.regions": 1.5,
+  "fuciniCoverage.whmWeights.branches": 2,
+  "fuciniCoverage.whmWeights.mcdc": 4,
+  "fuciniCoverage.whmWeights.instantiations": 0.5,
+  "fuciniCoverage.whmWeights.functionCalls": 1,
+  // Shown everywhere, scored nowhere, until you raise them from 0: object code
+  // subsumes statement coverage, and a mutation score is not coverage. Set
+  // mutation to 2 and watch the score of gearbox.cpp drop.
+  "fuciniCoverage.whmWeights.objectCode": 0,
+  "fuciniCoverage.whmWeights.mutation": 0,
+
+  "fuciniCoverage.mcdcGutter.enabled": true,
+  "fuciniCoverage.editorGutter.mode": "heatmap",
+  "fuciniCoverage.hitCounts.inline": true,
+  "fuciniCoverage.watch.enabled": true,
+  "fuciniCoverage.history.enabled": true
+}

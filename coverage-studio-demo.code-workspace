@@ -4,6 +4,7 @@
   // opened, here or on its own.
   "folders": [
     { "name": "C (llvm-cov, lcov, MC/DC)", "path": "samples/c" },
+    { "name": "C++ (one file, every metric)", "path": "samples/cpp" },
     { "name": "JavaScript (Istanbul)", "path": "samples/js" },
     { "name": "Python (coverage.py)", "path": "samples/python" },
     { "name": ".NET (Coverlet, dotnet-coverage)", "path": "samples/dotnet" }
