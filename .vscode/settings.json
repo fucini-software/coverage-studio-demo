@@ -33,5 +33,8 @@
   // how often, and what never did. "uncovered" is the calmer alternative:
   // bars on never-run lines only.
   "fuciniCoverage.editorGutter.mode": "heatmap",
-  "fuciniCoverage.hitCounts.inline": true
+  "fuciniCoverage.hitCounts.inline": true,
+  // CMakeLists.txt lives with the C sample since the repository holds one
+  // sample per language; this tells CMake Tools where, on any machine.
+  "cmake.sourceDirectory": "${workspaceFolder}/samples/c"
 }
