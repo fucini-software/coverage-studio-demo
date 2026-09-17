@@ -1,61 +1,227 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.714" branch-rate="0.75" lines-covered="10" lines-valid="14"
-          branches-covered="3" branches-valid="4" complexity="0" version="1.9" timestamp="1755500000">
+<coverage line-rate="0.839" branch-rate="0.75" lines-covered="99" lines-valid="118" branches-covered="18" branches-valid="24" complexity="0" version="llvm-cov" timestamp="1789629605">
   <sources>
     <source>.</source>
   </sources>
   <packages>
-    <package name="demo" line-rate="0.714" branch-rate="0.75" complexity="0">
+    <package name="src" line-rate="0.839" branch-rate="0.75" complexity="0">
       <classes>
-        <class name="calc.c" filename="src/calc.c" line-rate="0.714" branch-rate="0.75" complexity="0">
+        <class name="buffer.c" filename="src/buffer.c" line-rate="0.7391" branch-rate="0.75" complexity="0">
           <methods>
-            <method name="add" signature="(II)I">
+            <method name="buffer_init" signature="" line-rate="1" branch-rate="1">
               <lines>
-                <line number="4" hits="1"/>
-                <line number="5" hits="1"/>
+                <line number="12" hits="1"/>
               </lines>
             </method>
-            <method name="subtract" signature="(II)I">
+            <method name="buffer_push" signature="" line-rate="1" branch-rate="1">
               <lines>
-                <line number="8" hits="1"/>
-                <line number="9" hits="1"/>
+                <line number="19" hits="3"/>
               </lines>
             </method>
-            <method name="classify" signature="(I)I">
+            <method name="buffer_can_write" signature="" line-rate="1" branch-rate="1">
               <lines>
-                <line number="13" hits="1"/>
-                <line number="14" hits="1"/>
+                <line number="32" hits="1"/>
               </lines>
             </method>
-            <method name="gate" signature="(III)I">
+            <method name="buffer_drain" signature="" line-rate="0" branch-rate="1">
               <lines>
-                <line number="22" hits="2"/>
-                <line number="23" hits="2"/>
-              </lines>
-            </method>
-            <method name="unused_helper" signature="(I)I">
-              <lines>
-                <line number="30" hits="0"/>
-                <line number="31" hits="0"/>
+                <line number="40" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="4" hits="1"/>
-            <line number="5" hits="1"/>
-            <line number="8" hits="1"/>
-            <line number="9" hits="1"/>
+            <line number="12" hits="1"/>
             <line number="13" hits="1"/>
             <line number="14" hits="1" branch="true" condition-coverage="50% (1/2)"/>
             <line number="15" hits="1"/>
-            <line number="17" hits="0"/>
-            <line number="22" hits="2"/>
-            <line number="23" hits="2" branch="true" condition-coverage="75% (3/4)"/>
+            <line number="16" hits="1"/>
+            <line number="19" hits="3"/>
+            <line number="20" hits="3" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="21" hits="1"/>
+            <line number="22" hits="1"/>
+            <line number="23" hits="2"/>
             <line number="24" hits="2"/>
+            <line number="25" hits="3"/>
+            <line number="32" hits="1"/>
+            <line number="33" hits="1"/>
+            <line number="34" hits="1"/>
+            <line number="35" hits="1"/>
+            <line number="36" hits="0"/>
+            <line number="37" hits="1"/>
+            <line number="40" hits="0"/>
+            <line number="41" hits="0"/>
+            <line number="42" hits="0"/>
+            <line number="43" hits="0"/>
+            <line number="44" hits="0"/>
+          </lines>
+        </class>
+        <class name="calc.c" filename="src/calc.c" line-rate="0.7727" branch-rate="0.5" complexity="0">
+          <methods>
+            <method name="add" signature="" line-rate="1" branch-rate="1">
+              <lines>
+                <line number="12" hits="1"/>
+              </lines>
+            </method>
+            <method name="subtract" signature="" line-rate="1" branch-rate="1">
+              <lines>
+                <line number="16" hits="1"/>
+              </lines>
+            </method>
+            <method name="classify" signature="" line-rate="1" branch-rate="1">
+              <lines>
+                <line number="21" hits="1"/>
+              </lines>
+            </method>
+            <method name="gate" signature="" line-rate="1" branch-rate="1">
+              <lines>
+                <line number="30" hits="5"/>
+              </lines>
+            </method>
+            <method name="unused_helper" signature="" line-rate="0" branch-rate="1">
+              <lines>
+                <line number="38" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="12" hits="1"/>
+            <line number="13" hits="1"/>
+            <line number="14" hits="1"/>
+            <line number="16" hits="1"/>
+            <line number="17" hits="1"/>
+            <line number="18" hits="1"/>
+            <line number="21" hits="1"/>
+            <line number="22" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="23" hits="1"/>
+            <line number="24" hits="1"/>
+            <line number="25" hits="0"/>
             <line number="26" hits="0"/>
-            <line number="30" hits="0"/>
-            <line number="31" hits="0"/>
+            <line number="27" hits="1"/>
+            <line number="30" hits="5"/>
+            <line number="31" hits="5"/>
+            <line number="32" hits="2"/>
+            <line number="33" hits="2"/>
+            <line number="34" hits="3"/>
+            <line number="35" hits="5"/>
+            <line number="38" hits="0"/>
+            <line number="39" hits="0"/>
+            <line number="40" hits="0"/>
+          </lines>
+        </class>
+        <class name="calc_test.c" filename="src/calc_test.c" line-rate="1" branch-rate="1" complexity="0">
+          <methods>
+            <method name="main" signature="" line-rate="1" branch-rate="1">
+              <lines>
+                <line number="32" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="32" hits="1"/>
+            <line number="33" hits="1"/>
+            <line number="34" hits="1"/>
+            <line number="35" hits="1"/>
+            <line number="36" hits="1"/>
+            <line number="39" hits="1"/>
+            <line number="40" hits="1"/>
+            <line number="41" hits="1"/>
+            <line number="42" hits="1"/>
+            <line number="43" hits="1"/>
+            <line number="44" hits="1"/>
+            <line number="46" hits="1"/>
+            <line number="47" hits="1"/>
+            <line number="48" hits="1"/>
+            <line number="49" hits="1"/>
+            <line number="50" hits="1"/>
+            <line number="51" hits="1"/>
+            <line number="52" hits="1"/>
+            <line number="53" hits="1"/>
+            <line number="55" hits="1"/>
+            <line number="56" hits="1"/>
+            <line number="57" hits="1"/>
+            <line number="59" hits="1"/>
+            <line number="60" hits="1001" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="61" hits="1000"/>
+            <line number="62" hits="1000"/>
+            <line number="63" hits="1"/>
+            <line number="65" hits="1"/>
+            <line number="66" hits="1"/>
+            <line number="70" hits="1"/>
+            <line number="71" hits="1"/>
+            <line number="72" hits="1"/>
+            <line number="75" hits="1"/>
+            <line number="76" hits="1"/>
+            <line number="77" hits="1"/>
+          </lines>
+        </class>
+        <class name="sensor.c" filename="src/sensor.c" line-rate="0.7895" branch-rate="0.75" complexity="0">
+          <methods>
+            <method name="sensor_clamp" signature="" line-rate="1" branch-rate="1">
+              <lines>
+                <line number="12" hits="2"/>
+              </lines>
+            </method>
+            <method name="sensor_average" signature="" line-rate="1" branch-rate="1">
+              <lines>
+                <line number="17" hits="1"/>
+              </lines>
+            </method>
+            <method name="sensor_state" signature="" line-rate="1" branch-rate="1">
+              <lines>
+                <line number="29" hits="2"/>
+              </lines>
+            </method>
+            <method name="sensor_alarm" signature="" line-rate="1" branch-rate="1">
+              <lines>
+                <line number="43" hits="3"/>
+              </lines>
+            </method>
+            <method name="sensor_flush" signature="" line-rate="1" branch-rate="1">
+              <lines>
+                <line number="51" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="12" hits="2"/>
+            <line number="13" hits="2" branch="true" condition-coverage="75% (3/4)"/>
+            <line number="14" hits="2"/>
+            <line number="17" hits="1"/>
+            <line number="18" hits="1"/>
+            <line number="19" hits="0"/>
+            <line number="20" hits="0"/>
+            <line number="21" hits="1"/>
+            <line number="22" hits="1001" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="23" hits="1000"/>
+            <line number="24" hits="1000"/>
+            <line number="25" hits="1"/>
+            <line number="26" hits="1"/>
+            <line number="29" hits="2"/>
+            <line number="30" hits="2"/>
+            <line number="31" hits="1" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="32" hits="1"/>
+            <line number="33" hits="1" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="34" hits="1"/>
+            <line number="35" hits="0" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="36" hits="0"/>
+            <line number="37" hits="0" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="38" hits="0"/>
+            <line number="39" hits="2"/>
+            <line number="40" hits="2"/>
+            <line number="43" hits="3"/>
+            <line number="44" hits="3"/>
+            <line number="45" hits="2"/>
+            <line number="46" hits="2"/>
+            <line number="47" hits="1"/>
+            <line number="48" hits="3"/>
+            <line number="51" hits="1"/>
+            <line number="52" hits="1"/>
+            <line number="53" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="54" hits="0"/>
+            <line number="55" hits="0"/>
+            <line number="56" hits="1"/>
+            <line number="57" hits="1"/>
           </lines>
         </class>
       </classes>

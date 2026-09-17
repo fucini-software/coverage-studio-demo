@@ -14,14 +14,14 @@
 set -eu
 cd "$(dirname "$0")"
 
-sh scripts/gen-coverage.sh clang --per-test
+bash scripts/gen-coverage.sh clang --per-test
 
 # Compiled file by file so each .gcno and .gcda lands in build/gcc beside its
 # object, where --object-directory finds it, whatever gcc's naming rule for a
 # multi-source link happens to be in this version.
 rm -rf build/gcc coverage/gcovr
 mkdir -p build/gcc coverage/gcovr
-for unit in calc buffer calc_test; do
+for unit in calc buffer sensor calc_test; do
   gcc -O0 -g --coverage -c "src/$unit.c" -o "build/gcc/$unit.o"
 done
 gcc --coverage build/gcc/*.o -o build/gcc/calc

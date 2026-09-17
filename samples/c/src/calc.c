@@ -1,3 +1,11 @@
+/**
+ * @file calc.c
+ * @brief Implementation of the arithmetic and decision helpers in calc.h.
+ *
+ * @author Mario Fucini
+ * @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+ *            License; see the LICENSE file in the repository root.
+ */
 #include "calc.h"
 
 /* Simple arithmetic used by the demo. */

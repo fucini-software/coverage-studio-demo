@@ -1,3 +1,11 @@
+/**
+ * @file buffer.c
+ * @brief Implementation of the bounded buffer in buffer.h.
+ *
+ * @author Mario Fucini
+ * @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+ *            License; see the LICENSE file in the repository root.
+ */
 #include "buffer.h"
 
 /* Fully covered: every line runs in the test. */
