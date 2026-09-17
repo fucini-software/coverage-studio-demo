@@ -30,9 +30,9 @@ same shape of decision tested properly, so the report shows one of each.
 
 1. Install **Fucini Coverage Studio Pro**, if you haven't already.
 2. Open this folder (or `coverage-studio-demo.code-workspace`) in VS Code.
-3. Coverage loads automatically from [`coverage/coverage.json`](coverage/coverage.json)
+3. Coverage loads automatically from [`samples/c/coverage/coverage.json`](samples/c/coverage/coverage.json)
    (watch mode is on). If not, run **`Fucini Coverage: Load Coverage`**.
-4. Open [`src/calc.c`](src/calc.c) or [`src/buffer.c`](src/buffer.c) — gutters,
+4. Open [`samples/c/src/calc.c`](samples/c/src/calc.c) or [`samples/c/src/buffer.c`](samples/c/src/buffer.c) — gutters,
    CodeLens and the status bar appear right away, no build step needed.
    The demo's [`.vscode/settings.json`](.vscode/settings.json) switches the
    gutter to its heatmap and puts the hit count after each line; out of the
@@ -50,15 +50,15 @@ self-rendered report. The overall run is **NON-COMPLIANT** out of the box
 Four tracefiles are included, so everything above works with no compiler
 toolchain installed:
 
-- `coverage/coverage.json` — llvm-cov JSON (loaded by default). The only one
+- `samples/c/coverage/coverage.json` — llvm-cov JSON (loaded by default). The only one
   of the three that carries regions, instantiations and **MC/DC**.
-- `coverage/lcov.info` — LCOV, exported from the *same* build, so it describes
+- `samples/c/coverage/lcov.info` — LCOV, exported from the *same* build, so it describes
   identical code measured by a format that cannot express MC/DC. Switch to it
   to see exactly what those metrics stop telling you.
-- `coverage/coverage.xml` — Cobertura. Point `fuciniCoverage.coverageFile.paths`
+- `samples/c/coverage/coverage.xml` — Cobertura. Point `fuciniCoverage.coverageFile.paths`
   at more than one to see a deterministic **merge** of formats into one run.
-- `coverage/per-test.info` — LCOV with one section per test: the calc half and
-  the buffer half of `src/calc_test.c`, each built and run on its own
+- `samples/c/coverage/per-test.info` — LCOV with one section per test: the calc half and
+  the buffer half of `samples/c/src/calc_test.c`, each built and run on its own
   (`TN:calc`, `TN:buffer`). Point `fuciniCoverage.coverageFile.paths` at it to
   filter coverage **by test** in VS Code's Test Coverage view, or load it
   beside `lcov.info` to see which report covered each line.
@@ -71,16 +71,16 @@ llvm-cov output (regions, C++ instantiations and real **MC/DC**):
 
 ```bash
 # macOS/Linux
-./scripts/gen-coverage.sh clang   # -> coverage/coverage.json (llvm-cov + MC/DC)
-./scripts/gen-coverage.sh gcc     # -> coverage/lcov.info
-./scripts/gen-coverage.sh clang --per-test   # also coverage/per-test.info
+./samples/c/scripts/gen-coverage.sh clang   # -> coverage/coverage.json (llvm-cov + MC/DC)
+./samples/c/scripts/gen-coverage.sh gcc     # -> coverage/lcov.info
+./samples/c/scripts/gen-coverage.sh clang --per-test   # also coverage/per-test.info
 ```
 
 ```powershell
 # Windows
-.\scripts\gen-coverage.ps1 clang
-.\scripts\gen-coverage.ps1 gcc
-.\scripts\gen-coverage.ps1 clang -PerTest    # also coverage\per-test.info
+.\samples\c\scripts\gen-coverage.ps1 clang
+.\samples\c\scripts\gen-coverage.ps1 gcc
+.\samples\c\scripts\gen-coverage.ps1 clang -PerTest    # also coverage\per-test.info
 ```
 
 The clang mode writes `coverage.json` and `lcov.info` together, from one run,

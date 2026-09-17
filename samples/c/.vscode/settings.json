@@ -1,12 +1,10 @@
 {
-  // Settings for opening the repository root: they show the C sample, the way
-  // this repository always has. Each folder under samples/ has settings of its
-  // own, and coverage-studio-demo.code-workspace opens them all side by side.
+  // Demo workspace settings for Fucini Coverage Studio.
 
   // Base folder for coverage discovery (${workspaceFolder} supported) — set
   // so coverage.json/lcov.info here are found without scanning the whole
   // workspace root.
-  "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/samples/c/coverage",
+  "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
   // Load the ready-made llvm-cov JSON so gutters/CodeLens/report appear
   // immediately, no "Load Coverage" step needed on first open.
   //

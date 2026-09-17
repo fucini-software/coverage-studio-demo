@@ -1,13 +1,13 @@
 {
+  // One folder per language. Each has its own .vscode/settings.json saying
+  // which of its reports to load, so every sample works the moment it is
+  // opened, here or on its own.
   "folders": [
-    { "path": "." }
+    { "name": "C (llvm-cov, lcov, MC/DC)", "path": "samples/c" }
   ],
   "settings": {
-    "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
-    "fuciniCoverage.coverageFile.paths": ["lcov.info"],
     "fuciniCoverage.watch.enabled": true,
     "fuciniCoverage.history.enabled": true,
-    "fuciniCoverage.mcdcGutter.enabled": true,
     "fuciniCoverage.telemetry.enabled": false,
     "fuciniCoverage.telemetry.developerMode": false
   },

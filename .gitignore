@@ -1,0 +1,13 @@
+# Build outputs of every sample. The coverage reports under samples/*/coverage
+# are the point of this repository and are committed on purpose.
+build/
+bin/
+obj/
+target/
+node_modules/
+__pycache__/
+*.gcda
+*.gcno
+*.profraw
+*.profdata
+.nyc_output/
