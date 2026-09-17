@@ -1,0 +1,5 @@
+# The generators run inside Linux images, where a CRLF shebang line is
+# "/usr/bin/env: 'sh\r': No such file or directory".
+*.sh        text eol=lf
+Dockerfile  text eol=lf
+*.hcl       text eol=lf

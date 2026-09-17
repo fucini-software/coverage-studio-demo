@@ -34,7 +34,7 @@ All written by one run of `generate.sh`:
 ## Regenerating
 
 ```sh
-docker buildx bake js                      # once, from the repository root
+docker buildx bake -f docker/docker-bake.hcl js    # once, from the repository root
 docker run --rm -v "$PWD:/work" coverage-studio-lab:js samples/js/generate.sh
 ```
 

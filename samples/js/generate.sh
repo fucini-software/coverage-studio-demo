@@ -31,4 +31,9 @@ npx nyc --silent --temp-dir .nyc_output/all sh -c 'node test/unit.test.js && nod
 npx nyc report --temp-dir .nyc_output/all --report-dir coverage \
   --reporter=json --reporter=lcovonly --reporter=clover --reporter=cobertura
 
+{
+  echo "- node $(node --version)"
+  echo "- nyc $(npx nyc --version)"
+} > coverage/VERSIONS.txt
+
 echo "Wrote coverage/ (Istanbul JSON, LCOV, Clover, Cobertura) and the two per-suite reports."
