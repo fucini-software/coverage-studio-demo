@@ -9,7 +9,7 @@
   //   trace32-object.xml  object code      (illustrative, see README.md)
   //   mutation.json       mutation score   (illustrative, see README.md)
   // Remove any of the last three to watch its row, column and badge disappear.
-  "fuciniCoverage.coverageFile.paths": ["coverage.json", "trace32-call.xml", "trace32-object.xml", "mutation.json"],
+  "fuciniCoverage.coverageFile.paths": ["coverage.json", "trace32-call.xml", "trace32-cond.xml", "trace32-object.xml", "mutation.json"],
   "fuciniCoverage.pathRemap": [
     // TRACE32 names modules, not files: this is how the module "gearbox"
     // becomes the source file the other reports are about.

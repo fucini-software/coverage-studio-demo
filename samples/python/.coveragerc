@@ -1,0 +1,12 @@
+# @file .coveragerc
+# @brief coverage.py settings for the Python sample.
+# @author Mario Fucini
+# @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+#            License; see the LICENSE file in the repository root.
+#
+# dynamic_context records which test function ran each line. With
+# `coverage json --show-contexts` the report then says so per line, and
+# Coverage Studio names those tests when you hover a line's hit count.
+[run]
+branch = True
+dynamic_context = test_function

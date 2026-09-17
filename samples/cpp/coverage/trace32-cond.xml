@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--
+  ILLUSTRATIVE, not an export from a TRACE32 session.
+
+  Written by hand in the schema of Lauterbach's COVerage.EXPORT.ListModule, with
+  the counts reasoned from the sources. In a `cond` export TRACE32 counts, under
+  `lines` / `linesok`, the source lines that carry a condition and those whose
+  conditions were all seen both true and false. gearbox.cpp has four such lines:
+
+    26  value < lo                                 only ever false      not ok
+    29  value > hi                                 true and false       ok
+    34  rpm > 3000 && throttle > 50 || manual      `manual` only false  not ok
+    42  up                                         only ever true       not ok
+
+  So one of four. It is here so the sample can show condition coverage, the
+  level between branch coverage and MC/DC, beside the compiler's metrics; a real
+  export from the TRACE32 simulator is to replace it. See ../README.md.
+
+  TRACE32 names modules, not files: .vscode/settings.json maps the module
+  "gearbox" to src/gearbox.cpp with a fuciniCoverage.pathRemap rule.
+-->
+<TRACE32 file="coverage/trace32-cond.xml">
+	<coverage>
+		<COVerage.EXPORT.ListModule metric="cond">
+			<module>
+				<tree>\\gearbox_demo\gearbox</tree>
+				<exec metric="cond">25.000%</exec>
+				<lines>4</lines>
+				<linesok>1</linesok>
+			</module>
+		</COVerage.EXPORT.ListModule>
+	</coverage>
+</TRACE32>

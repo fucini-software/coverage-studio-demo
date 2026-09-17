@@ -5,7 +5,8 @@
 # @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
 #            License; see the LICENSE file in the repository root.
 #
-#   coverage/coverage.json            coverage.py JSON, with branches and exclusions
+#   coverage/coverage.json            coverage.py JSON, with branches, exclusions and,
+#                                     per line, the tests that ran it (.coveragerc)
 #   coverage/coverage.xml             the same run as Cobertura
 #   coverage/lcov.info                ... as LCOV
 #   coverage/posting/coverage.json    the PostingTests suite alone
@@ -23,8 +24,8 @@ rm -rf coverage
 mkdir -p coverage/posting coverage/closing coverage/reconcile
 
 run() { # <data file> <json out> [test class]
-  COVERAGE_FILE="$1" python -m coverage run --branch run_tests.py ${3:-}
-  COVERAGE_FILE="$1" python -m coverage json --include 'ledger/*' -o "$2"
+  COVERAGE_FILE="$1" python -m coverage run run_tests.py ${3:-}
+  COVERAGE_FILE="$1" python -m coverage json --show-contexts --include 'ledger/*' -o "$2"
 }
 
 run /tmp/posting.cov coverage/posting/coverage.json PostingTests

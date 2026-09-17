@@ -30,7 +30,12 @@ doxygen runs over the sample without a warning.
 > that the paths inside them are the image's `/work/...` and not somebody's
 > home directory. Until then, `sh generate.sh` produces them locally.
 
-- `coverage/coverage.json`: coverage.py JSON, loaded by default.
+- `coverage/coverage.json`: coverage.py JSON, loaded by default. Written with
+  `--show-contexts`, and [`.coveragerc`](.coveragerc) sets
+  `dynamic_context = test_function`, so the report says for every line which
+  tests ran it. Hover a line's hit count in `ledger/ledger.py` (Coverage Studio
+  0.2026.83): **Tests that ran this line:** `ClosingTests.test_a_balanced_ledger_closes`,
+  `PostingTests.test_post_and_balance`.
 - `coverage/coverage.xml`, `coverage/lcov.info`: the same run as Cobertura and LCOV.
 - `coverage/posting/`, `coverage/closing/` and `coverage/reconcile/`: each test
   class on its own. Only `ClosingTests` reaches `close` and `memo_index`, and
