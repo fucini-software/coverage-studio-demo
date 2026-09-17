@@ -1,0 +1,14 @@
+{
+  "name": "coverage-studio-demo-js",
+  "version": "1.0.0",
+  "private": true,
+  "description": "JavaScript sample for the Fucini Coverage Studio demo: Istanbul, LCOV, Clover and Cobertura from one test run.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node test/unit.test.js && node test/integration.test.js",
+    "coverage": "sh generate.sh"
+  },
+  "devDependencies": {
+    "nyc": "17.1.0"
+  }
+}

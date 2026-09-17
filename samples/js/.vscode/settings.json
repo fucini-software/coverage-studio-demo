@@ -1,0 +1,19 @@
+{
+  // JavaScript sample settings for Fucini Coverage Studio.
+
+  "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
+  // Istanbul's own JSON rather than the LCOV, Clover or Cobertura written from
+  // the same run: it is the only one of the four that keeps statement columns
+  // (the red `item.sku` inside a covered line 40 of cart.js) and says what kind
+  // of branch each one is (`else`, `case 3`, `operand 2`). Swap in "lcov.info"
+  // to see the same run with that detail gone.
+  "fuciniCoverage.coverageFile.paths": ["coverage-final.json"],
+  // The reports were generated in the lab image, where this repository is
+  // mounted at /work. This maps that prefix back to wherever you cloned it.
+  "fuciniCoverage.pathRemap": [{ "from": "/work/samples/js", "to": "${workspaceFolder}" }],
+  // src/legacy.js is required by nothing, so no report mentions it. "list"
+  // shows it as not measured instead of leaving it out in silence.
+  "fuciniCoverage.unmeasured.mode": "list",
+  "fuciniCoverage.watch.enabled": true,
+  "fuciniCoverage.history.enabled": true
+}
