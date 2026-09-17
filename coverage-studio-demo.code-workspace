@@ -4,7 +4,8 @@
   // opened, here or on its own.
   "folders": [
     { "name": "C (llvm-cov, lcov, MC/DC)", "path": "samples/c" },
-    { "name": "JavaScript (Istanbul)", "path": "samples/js" }
+    { "name": "JavaScript (Istanbul)", "path": "samples/js" },
+    { "name": "Python (coverage.py)", "path": "samples/python" }
   ],
   "settings": {
     "fuciniCoverage.watch.enabled": true,
