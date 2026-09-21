@@ -1,0 +1,17 @@
+{
+  // Visual Basic sample settings for Fucini Coverage Studio.
+
+  "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
+  // Coverlet's OpenCover output rather than its Cobertura, as in the .NET
+  // sample: it keeps a visit count per branch arm, and this sample is about
+  // which of Visual Basic's operators have arms at all.
+  "fuciniCoverage.coverageFile.paths": ["coverage.opencover.xml"],
+  // The reports speak of /work/samples/vb, where the lab image mounts this
+  // repository. This maps that prefix back to wherever you cloned it.
+  "fuciniCoverage.pathRemap": [{ "from": "/work/samples/vb", "to": "${workspaceRoot}" }],
+  // What ran, how often, and what never did, on a first open of Timesheet.vb.
+  "fuciniCoverage.editorGutter.mode": "heatmap",
+  "fuciniCoverage.hitCounts.inline": true,
+  "fuciniCoverage.watch.enabled": true,
+  "fuciniCoverage.history.enabled": true
+}

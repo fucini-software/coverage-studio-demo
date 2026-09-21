@@ -45,5 +45,7 @@ target "go" {
 target "dotnet" {
   inherits = ["_lab"]
   target   = "dotnet"
-  tags     = ["coverage-studio-lab:dotnet"]
+  // Two names for one image: generate-all.sh looks an image up by the sample's
+  // name, and the Visual Basic sample needs what the .NET one needs.
+  tags     = ["coverage-studio-lab:dotnet", "coverage-studio-lab:vb"]
 }

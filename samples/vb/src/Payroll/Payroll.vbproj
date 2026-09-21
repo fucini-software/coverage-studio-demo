@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Payroll library of the Visual Basic coverage sample.
+       Author: Mario Fucini
+       Copyright (c) 2026 Fucini Consulting. Released under the MIT License; see
+       the LICENSE file in the repository root. -->
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Payroll</RootNamespace>
+    <OptionStrict>On</OptionStrict>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Authors>Mario Fucini</Authors>
+    <Company>Fucini Consulting</Company>
+    <Copyright>Copyright (c) 2026 Fucini Consulting</Copyright>
+  </PropertyGroup>
+
+</Project>
