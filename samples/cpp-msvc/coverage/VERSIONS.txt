@@ -1,0 +1,2 @@
+- MSVC 19.51.36257
+- Microsoft.CodeCoverage.Console.exe 18.10.0-preview.26374.2+1aa08105f3728c1626d3880651be06bf2181e165

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<results>
+  <modules>
+    <module id="049B588A5FFFBB4282DE2B5E2CC802F808000000" name="thermostat.exe" path="thermostat.exe" block_coverage="80.25" line_coverage="60.00" blocks_covered="65" blocks_not_covered="16" lines_covered="27" lines_partially_covered="12" lines_not_covered="6">
+      <functions>
+        <function id="4416" name="main" type_name="" block_coverage="76.60" line_coverage="21.43" blocks_covered="36" blocks_not_covered="11" lines_covered="3" lines_partially_covered="11" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="26" end_line="26" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="28" end_line="28" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="29" end_line="29" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="30" end_line="30" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="34" end_line="34" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="35" end_line="35" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="36" end_line="36" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="39" end_line="39" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="40" end_line="40" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="41" end_line="41" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="44" end_line="44" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="45" end_line="45" start_column="0" end_column="0" covered="partial" />
+            <range source_id="0" start_line="47" end_line="47" start_column="0" end_column="0" covered="yes" />
+            <range source_id="0" start_line="48" end_line="48" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="4144" name="decide" type_name="" block_coverage="90.00" line_coverage="88.89" blocks_covered="9" blocks_not_covered="1" lines_covered="8" lines_partially_covered="0" lines_not_covered="1">
+          <ranges>
+            <range source_id="1" start_line="24" end_line="24" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="25" end_line="25" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="26" end_line="26" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="28" end_line="28" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="29" end_line="29" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="31" end_line="31" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="32" end_line="32" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="34" end_line="34" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="35" end_line="35" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="4400" name="factory_reset" type_name="" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="1" lines_covered="0" lines_partially_covered="0" lines_not_covered="3">
+          <ranges>
+            <range source_id="1" start_line="60" end_line="60" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="61" end_line="61" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="62" end_line="62" start_column="0" end_column="0" covered="no" />
+          </ranges>
+        </function>
+        <function id="4320" name="max_burn_minutes" type_name="" block_coverage="77.78" line_coverage="71.43" blocks_covered="7" blocks_not_covered="2" lines_covered="5" lines_partially_covered="0" lines_not_covered="2">
+          <ranges>
+            <range source_id="1" start_line="46" end_line="46" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="47" end_line="47" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="49" end_line="49" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="51" end_line="51" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="53" end_line="53" start_column="0" end_column="0" covered="no" />
+            <range source_id="1" start_line="55" end_line="55" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="57" end_line="57" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="4240" name="scheduled_setpoint" type_name="" block_coverage="87.50" line_coverage="80.00" blocks_covered="7" blocks_not_covered="1" lines_covered="4" lines_partially_covered="1" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="38" end_line="38" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="39" end_line="39" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="40" end_line="40" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="42" end_line="42" start_column="0" end_column="0" covered="partial" />
+            <range source_id="1" start_line="43" end_line="43" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+        <function id="4096" name="plausible" type_name="" block_coverage="100.00" line_coverage="100.00" blocks_covered="6" blocks_not_covered="0" lines_covered="7" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" start_line="12" end_line="12" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="13" end_line="13" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="14" end_line="14" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="16" end_line="16" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="17" end_line="17" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="19" end_line="19" start_column="0" end_column="0" covered="yes" />
+            <range source_id="1" start_line="20" end_line="20" start_column="0" end_column="0" covered="yes" />
+          </ranges>
+        </function>
+      </functions>
+      <source_files>
+        <source_file id="0" path="/work/samples/cpp-msvc/src/thermostat_test.cpp" checksum_type="SHA256" checksum="715049ABFAAD982584152BB37DA5EFB582103DE2F9B9A5A220A17DC0A267081F" />
+        <source_file id="1" path="/work/samples/cpp-msvc/src/thermostat.cpp" checksum_type="SHA256" checksum="C176350F33FF53AB663C65BCBAF6EE9CA48AAB38EE9888E844C3475E8070F813" />
+      </source_files>
+      <skipped_functions>
+        <skipped_function id="18436" name="static void parse_command_line&lt;char&gt;(char *, char * *, char *, unsigned __int64 *, unsigned __int64 *)" type_name="" reason="source_excluded" />
+        <skipped_function id="62343" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="49568" name="_realloc_base" type_name="" reason="source_excluded" />
+        <skipped_function id="45792" name="strncpy_s" type_name="" reason="source_excluded" />
+        <skipped_function id="56976" name="_FindPESection" type_name="" reason="source_excluded" />
+        <skipped_function id="61849" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="20144" name="static void uninitialize_environment_internal&lt;wchar_t&gt;(wchar_t * * &amp; const)" type_name="" reason="source_excluded" />
+        <skipped_function id="6304" name="_get_startup_commit_mode" type_name="" reason="source_excluded" />
+        <skipped_function id="47216" name="_mbsdec_l" type_name="" reason="source_excluded" />
+        <skipped_function id="53176" name="_fcloseall" type_name="" reason="source_excluded" />
+        <skipped_function id="33244" name="_ismbblead" type_name="" reason="source_excluded" />
+        <skipped_function id="18980" name="_configure_narrow_argv" type_name="" reason="source_excluded" />
+        <skipped_function id="21136" name="_c_exit" type_name="" reason="source_excluded" />
+        <skipped_function id="11216" name="_SetImageBase" type_name="" reason="source_excluded" />
+        <skipped_function id="58304" name="_guard_dispatch_icall_nop" type_name="" reason="source_excluded" />
+        <skipped_function id="42588" name="_fflush_nolock" type_name="" reason="source_excluded" />
+        <skipped_function id="21240" name="exit" type_name="" reason="source_excluded" />
+        <skipped_function id="46096" name="static char * fallbackMethod(const char *, const char *)" type_name="" reason="source_excluded" />
+        <skipped_function id="62425" name="static  _write_internal$fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="6832" name="_RTC_Initialize" type_name="" reason="source_excluded" />
+        <skipped_function id="8864" name="_NLG_Notify" type_name="" reason="source_excluded" />
+        <skipped_function id="20116" name="static void uninitialize_environment_internal&lt;char&gt;(char * * &amp; const)" type_name="" reason="source_excluded" />
+        <skipped_function id="40656" name="_get_heap_handle" type_name="" reason="source_excluded" />
+        <skipped_function id="6352" name="_get_startup_thread_locale_mode" type_name="" reason="source_excluded" />
+        <skipped_function id="22824" name="static bool uninitialize_environment(const bool)" type_name="" reason="source_excluded" />
+        <skipped_function id="62102" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="11904" name="static int BuildCatchObjectHelperInternal&lt;__FrameHandler3&gt;(struct EHExceptionRecord *, void *, const struct _s_HandlerType *, const struct _s_CatchableType *)" type_name="" reason="source_excluded" />
+        <skipped_function id="62240" name="static  _query_new_handler$fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="36112" name="static void initialize_inherited_file_handles_nolock()" type_name="" reason="source_excluded" />
+        <skipped_function id="53424" name="_isatty" type_name="" reason="source_excluded" />
+        <skipped_function id="22844" name="static bool uninitialize_global_state_isolation(const bool)" type_name="" reason="source_excluded" />
+        <skipped_function id="41104" name="_set_new_handler" type_name="" reason="source_excluded" />
+        <skipped_function id="41200" name="_set_new_handler" type_name="" reason="source_excluded" />
+        <skipped_function id="51152" name="write_result write_text_ansi_nolock(const int, const char *, const unsigned int)" type_name="" reason="source_excluded" />
+        <skipped_function id="56540" name="_close_nolock_internal" type_name="" reason="source_excluded" />
+        <skipped_function id="40960" name="_callnewh" type_name="" reason="source_excluded" />
+        <skipped_function id="42800" name="_flushall" type_name="" reason="source_excluded" />
+        <skipped_function id="22912" name="static bool uninitialize_vcruntime(const bool)" type_name="" reason="source_excluded" />
+        <skipped_function id="58432" name="memcpy" type_name="" reason="source_excluded" />
+        <skipped_function id="20388" name="_initterm" type_name="" reason="source_excluded" />
+        <skipped_function id="62370" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="21168" name="_exit" type_name="" reason="source_excluded" />
+        <skipped_function id="24680" name="static void replace_current_thread_locale_nolock(struct __acrt_ptd *, struct __crt_locale_data *)" type_name="" reason="source_excluded" />
+        <skipped_function id="12576" name="static void FindHandler&lt;__FrameHandler3&gt;(struct EHExceptionRecord *, unsigned __int64 *, struct _CONTEXT *, struct _xDISPATCHER_CONTEXT *, const struct _s_FuncInfo *, unsigned char, int, unsigned __int64 *)" type_name="" reason="source_excluded" />
+        <skipped_function id="53680" name="_strnicmp" type_name="" reason="source_excluded" />
+        <skipped_function id="21664" name="_query_new_mode" type_name="" reason="source_excluded" />
+        <skipped_function id="23216" name="malloc" type_name="" reason="source_excluded" />
+        <skipped_function id="23456" name="calloc" type_name="" reason="source_excluded" />
+        <skipped_function id="62024" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="62262" name="static  _set_new_handler$fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="21152" name="_cexit" type_name="" reason="source_excluded" />
+        <skipped_function id="58336" name="_guard_xfg_dispatch_icall_nop" type_name="" reason="source_excluded" />
+        <skipped_function id="23156" name="terminate" type_name="" reason="source_excluded" />
+        <skipped_function id="8512" name="_IsExceptionObjectToBeDestroyed" type_name="" reason="source_excluded" />
+        <skipped_function id="40480" name="_recalloc_base" type_name="" reason="source_excluded" />
+        <skipped_function id="43200" name="_unlock_file" type_name="" reason="source_excluded" />
+        <skipped_function id="21548" name="_configthreadlocale" type_name="" reason="source_excluded" />
+        <skipped_function id="21028" name="static void try_cor_exit_process(const unsigned int)" type_name="" reason="source_excluded" />
+        <skipped_function id="17424" name="_CallMemberFunction2" type_name="" reason="source_excluded" />
+        <skipped_function id="6416" name="_initialize_denormal_control" type_name="" reason="source_excluded" />
+        <skipped_function id="55764" name="fclose" type_name="" reason="source_excluded" />
+        <skipped_function id="54172" name="static int InternalCompareStringA(struct __crt_locale_pointers *, const wchar_t *, unsigned long, const char *, int, const char *, int, int)" type_name="" reason="source_excluded" />
+        <skipped_function id="20980" name="static void exit_or_terminate_process(const unsigned int, bool)" type_name="" reason="source_excluded" />
+        <skipped_function id="6016" name="atexit" type_name="" reason="source_excluded" />
+        <skipped_function id="11152" name="_GetImageBase" type_name="" reason="source_excluded" />
+        <skipped_function id="21180" name="_register_thread_local_exe_atexit_callback" type_name="" reason="source_excluded" />
+        <skipped_function id="24496" name="internal_get_ptd_head_slow" type_name="" reason="source_excluded" />
+        <skipped_function id="22816" name="static bool uninitialize_c(bool)" type_name="" reason="source_excluded" />
+        <skipped_function id="26592" name="_calloc_base" type_name="" reason="source_excluded" />
+        <skipped_function id="35968" name="_get_osfhandle" type_name="" reason="source_excluded" />
+        <skipped_function id="51416" name="write_result write_text_utf16le_nolock(const int, const char *, const unsigned int)" type_name="" reason="source_excluded" />
+        <skipped_function id="49488" name="_msize_base" type_name="" reason="source_excluded" />
+        <skipped_function id="58048" name="operator delete" type_name="" reason="source_excluded" />
+        <skipped_function id="57808" name="operator delete" type_name="" reason="source_excluded" />
+        <skipped_function id="6912" name="_RTC_Terminate" type_name="" reason="source_excluded" />
+        <skipped_function id="22984" name="static bool uninitialize_allocated_io_buffers(const bool)" type_name="" reason="source_excluded" />
+        <skipped_function id="12384" name="static void BuildCatchObjectInternal&lt;__FrameHandler3&gt;(struct EHExceptionRecord *, void *, const struct _s_HandlerType *, const struct _s_CatchableType *)" type_name="" reason="source_excluded" />
+        <skipped_function id="57232" name="_HandleError()" type_name="_GsFailureOnError" reason="source_excluded" />
+        <skipped_function id="26556" name="_errno" type_name="" reason="source_excluded" />
+        <skipped_function id="52360" name="_write_nolock" type_name="" reason="source_excluded" />
+        <skipped_function id="20380" name="_initialize_narrow_environment" type_name="" reason="source_excluded" />
+        <skipped_function id="6320" name="_get_startup_file_mode" type_name="" reason="source_excluded" />
+        <skipped_function id="39096" name="static void * try_get_function_slow(const `anonymous-namespace'::function_id, const char *, const `anonymous-namespace'::module_id *, const `anonymous-namespace'::module_id *)" type_name="" reason="source_excluded" />
+        <skipped_function id="61616" name="filt$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="20752" name="static void common_exit(const int, const _crt_exit_cleanup_mode, const _crt_exit_return_mode)" type_name="" reason="source_excluded" />
+        <skipped_function id="8496" name="_CallMemberFunction0" type_name="" reason="source_excluded" />
+        <skipped_function id="22820" name="static bool initialize_environment()" type_name="" reason="source_excluded" />
+        <skipped_function id="19824" name="static void free_environment&lt;wchar_t&gt;(wchar_t * *)" type_name="" reason="source_excluded" />
+        <skipped_function id="10992" name="_CreateFrameInfo" type_name="" reason="source_excluded" />
+        <skipped_function id="22648" name="_initialize_onexit_table" type_name="" reason="source_excluded" />
+        <skipped_function id="38936" name="_updatetlocinfoEx_nolock" type_name="" reason="source_excluded" />
+        <skipped_function id="57136" name="_ValidateImageBase" type_name="" reason="source_excluded" />
+        <skipped_function id="5424" name="mainCRTStartup" type_name="" reason="source_excluded" />
+        <skipped_function id="62284" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="18360" name="_query_app_type" type_name="" reason="source_excluded" />
+        <skipped_function id="30700" name="static int getSystemCP(int)" type_name="" reason="source_excluded" />
+        <skipped_function id="32108" name="static struct __crt_multibyte_data * update_thread_multibyte_data_internal(struct __acrt_ptd *, struct __crt_multibyte_data * *)" type_name="" reason="source_excluded" />
+        <skipped_function id="28632" name="static int expand_argument_wildcards&lt;char&gt;(char *, char *, class `anonymous-namespace'::argument_list&lt;char&gt; &amp; const)" type_name="" reason="source_excluded" />
+        <skipped_function id="25948" name="_invalid_parameter_internal" type_name="" reason="source_excluded" />
+        <skipped_function id="47208" name="_mbsdec" type_name="" reason="source_excluded" />
+        <skipped_function id="40640" name="_recalloc" type_name="" reason="source_excluded" />
+        <skipped_function id="17408" name="_CallMemberFunction1" type_name="" reason="source_excluded" />
+        <skipped_function id="33904" name="static int common_set_variable_in_environment_nolock&lt;char&gt;(char *, const int)" type_name="" reason="source_excluded" />
+        <skipped_function id="26808" name="&lt;lambda_invoker_cdecl&gt;(const void *, const void *)" type_name="&lt;lambda_a1ce4c8ae42411fd470c77163914f50e&gt;" reason="source_excluded" />
+        <skipped_function id="21852" name="operator()()" type_name="&lt;lambda_22ebabd17bc4fa466a2aca6d8deb888d&gt;" reason="source_excluded" />
+        <skipped_function id="52072" name="_write_internal" type_name="" reason="source_excluded" />
+        <skipped_function id="6384" name="_should_initialize_environment" type_name="" reason="source_excluded" />
+        <skipped_function id="19364" name="static int common_initialize_environment_nolock&lt;char&gt;()" type_name="" reason="source_excluded" />
+        <skipped_function id="4800" name="static int pre_c_initialization()" type_name="" reason="source_excluded" />
+        <skipped_function id="36368" name="static void initialize_stdio_handles_nolock()" type_name="" reason="source_excluded" />
+        <skipped_function id="22688" name="_register_onexit_function" type_name="" reason="source_excluded" />
+        <skipped_function id="61792" name="filt$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="24216" name="static void destroy_fls(void *)" type_name="" reason="source_excluded" />
+        <skipped_function id="46256" name="strpbrk" type_name="" reason="source_excluded" />
+        <skipped_function id="61814" name="fin$1()" type_name="" reason="name_excluded" />
+        <skipped_function id="6272" name="_matherr" type_name="" reason="source_excluded" />
+        <skipped_function id="23076" name="static bool report_memory_leaks(const bool)" type_name="" reason="source_excluded" />
+        <skipped_function id="33128" name="static int x_ismbbtype_l(struct __crt_locale_pointers *, unsigned int, int, int)" type_name="" reason="source_excluded" />
+        <skipped_function id="6336" name="_get_startup_new_mode" type_name="" reason="source_excluded" />
+        <skipped_function id="62528" name="static  _IsNonwritableInCurrentImage$filt$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="23232" name="strcpy_s" type_name="" reason="source_excluded" />
+        <skipped_function id="61946" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="26164" name="_invoke_watson" type_name="" reason="source_excluded" />
+        <skipped_function id="62448" name="static  _fcloseall$fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="55400" name="_lseeki64_nolock_internal" type_name="" reason="source_excluded" />
+        <skipped_function id="62399" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="6400" name="_initialize_invalid_parameter_handler" type_name="" reason="source_excluded" />
+        <skipped_function id="26132" name="_invalid_parameter_noinfo" type_name="" reason="source_excluded" />
+        <skipped_function id="58368" name="_guard_dispatch_icall" type_name="" reason="source_excluded" />
+        <skipped_function id="62497" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="32416" name="_setmbcp_nolock" type_name="" reason="source_excluded" />
+        <skipped_function id="6288" name="_get_startup_argv_mode" type_name="" reason="source_excluded" />
+        <skipped_function id="44820" name="_fileno" type_name="" reason="source_excluded" />
+        <skipped_function id="19756" name="static void free_environment&lt;char&gt;(char * *)" type_name="" reason="source_excluded" />
+        <skipped_function id="60112" name="strncmp" type_name="" reason="source_excluded" />
+        <skipped_function id="61998" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="55472" name="static int _fclose_internal(struct _iobuf *, class __crt_cached_ptd_host &amp; const)" type_name="" reason="source_excluded" />
+        <skipped_function id="43188" name="_lock_file" type_name="" reason="source_excluded" />
+        <skipped_function id="17824" name="_CxxThrowException" type_name="" reason="source_excluded" />
+        <skipped_function id="22920" name="static bool uninitialize_allocated_memory(const bool)" type_name="" reason="source_excluded" />
+        <skipped_function id="14640" name="TypeMatchHelper&lt;__FrameHandler3&gt;" type_name="" reason="source_excluded" />
+        <skipped_function id="51700" name="write_result write_text_utf8_nolock(const int, const char *, const unsigned int)" type_name="" reason="source_excluded" />
+        <skipped_function id="56344" name="_close_internal" type_name="" reason="source_excluded" />
+        <skipped_function id="61440" name="filt$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="25792" name="_invalid_parameter" type_name="" reason="source_excluded" />
+        <skipped_function id="29496" name="_LocaleUpdate" type_name="_LocaleUpdate" reason="source_excluded" />
+        <skipped_function id="19480" name="static char * * create_environment&lt;char&gt;(char *)" type_name="" reason="source_excluded" />
+        <skipped_function id="11184" name="_GetThrowImageBase" type_name="" reason="source_excluded" />
+        <skipped_function id="62473" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="41040" name="_query_new_handler" type_name="" reason="source_excluded" />
+        <skipped_function id="9632" name="_CallSETranslator&lt;__FrameHandler3&gt;" type_name="" reason="source_excluded" />
+        <skipped_function id="21680" name="_set_new_mode" type_name="" reason="source_excluded" />
+        <skipped_function id="5008" name="static void pre_cpp_initialization()" type_name="" reason="source_excluded" />
+        <skipped_function id="49832" name="_commit" type_name="" reason="source_excluded" />
+        <skipped_function id="34760" name="static char * * copy_environment&lt;char&gt;(char * *)" type_name="" reason="source_excluded" />
+        <skipped_function id="58144" name="strchr" type_name="" reason="source_excluded" />
+        <skipped_function id="61649" name="fin$1()" type_name="" reason="name_excluded" />
+        <skipped_function id="37456" name="_malloc_base" type_name="" reason="source_excluded" />
+        <skipped_function id="16992" name="static unsigned char IsInExceptionSpec(struct EHExceptionRecord *, const struct _s_ESTypeList *)" type_name="" reason="source_excluded" />
+        <skipped_function id="62076" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="31484" name="static int setmbcp_internal(const int, const bool, struct __acrt_ptd *, struct __crt_multibyte_data * *)" type_name="" reason="source_excluded" />
+        <skipped_function id="22780" name="static bool initialize_c()" type_name="" reason="source_excluded" />
+        <skipped_function id="22284" name="operator()()" type_name="&lt;lambda_f03950bc5685219e0bcd2087efbe011e&gt;" reason="source_excluded" />
+        <skipped_function id="60288" name="memset_repstos" type_name="" reason="source_excluded" />
+        <skipped_function id="26800" name="static void * select_heap(void *)" type_name="" reason="source_excluded" />
+        <skipped_function id="30828" name="static void setSBCS(struct __crt_multibyte_data *)" type_name="" reason="source_excluded" />
+        <skipped_function id="23200" name="free" type_name="" reason="source_excluded" />
+        <skipped_function id="11056" name="_FindAndUnlinkFrame" type_name="" reason="source_excluded" />
+        <skipped_function id="16416" name="static int ExFilterRethrow(struct _EXCEPTION_POINTERS *, struct EHExceptionRecord *, int *)" type_name="" reason="source_excluded" />
+        <skipped_function id="6992" name="_guard_check_icall_nop" type_name="" reason="source_excluded" />
+        <skipped_function id="28244" name="static int copy_and_add_argument_to_buffer&lt;char&gt;(const char *, const char *, const unsigned __int64, class `anonymous-namespace'::argument_list&lt;char&gt; &amp; const)" type_name="" reason="source_excluded" />
+        <skipped_function id="22760" name="static bool initialize_global_variables()" type_name="" reason="source_excluded" />
+        <skipped_function id="37132" name="static void free_crt_array_internal(const void * *, const unsigned __int64)" type_name="" reason="source_excluded" />
+        <skipped_function id="17536" name="_CallSettingFrame" type_name="" reason="source_excluded" />
+        <skipped_function id="48336" name="static int initialize_multibyte()" type_name="" reason="source_excluded" />
+        <skipped_function id="20444" name="_initterm_e" type_name="" reason="source_excluded" />
+        <skipped_function id="14032" name="static void FindHandlerForForeignException&lt;__FrameHandler3&gt;(struct EHExceptionRecord *, unsigned __int64 *, struct _CONTEXT *, struct _xDISPATCHER_CONTEXT *, const struct _s_FuncInfo *, int, int, unsigned __int64 *)" type_name="" reason="source_excluded" />
+        <skipped_function id="44864" name="qsort" type_name="" reason="source_excluded" />
+        <skipped_function id="17996" name="_seh_filter_exe" type_name="" reason="source_excluded" />
+        <skipped_function id="61920" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="30980" name="static void setSBUpLow(struct __crt_multibyte_data *)" type_name="" reason="source_excluded" />
+        <skipped_function id="53824" name="_strnicmp_l" type_name="" reason="source_excluded" />
+        <skipped_function id="55596" name="static int _fclose_nolock_internal(struct _iobuf *, class __crt_cached_ptd_host &amp; const)" type_name="" reason="source_excluded" />
+        <skipped_function id="62128" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="61216" name="filt$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="35780" name="_free_osfhnd" type_name="" reason="source_excluded" />
+        <skipped_function id="55408" name="_putwch_nolock" type_name="" reason="source_excluded" />
+        <skipped_function id="20300" name="_get_initial_narrow_environment" type_name="" reason="source_excluded" />
+        <skipped_function id="39040" name="static  * try_get_CompareStringEx()" type_name="" reason="source_excluded" />
+        <skipped_function id="48368" name="_strnicoll" type_name="" reason="source_excluded" />
+        <skipped_function id="27672" name="static int common_expand_argv_wildcards&lt;char&gt;(char * *, char * * *)" type_name="" reason="source_excluded" />
+        <skipped_function id="23360" name="abort" type_name="" reason="source_excluded" />
+        <skipped_function id="19892" name="static int initialize_environment_by_cloning_nolock&lt;char&gt;()" type_name="" reason="source_excluded" />
+        <skipped_function id="53548" name="_guard_check_icall" type_name="" reason="source_excluded" />
+        <skipped_function id="21252" name="_set_fmode" type_name="" reason="source_excluded" />
+        <skipped_function id="26720" name="_free_base" type_name="" reason="source_excluded" />
+        <skipped_function id="11248" name="_SetThrowImageBase" type_name="" reason="source_excluded" />
+        <skipped_function id="53616" name="static int _strnicmp_validate_param(const char *, const char *, const unsigned __int64)" type_name="" reason="source_excluded" />
+        <skipped_function id="17264" name="static unsigned char Is_bad_exception_allowed(const struct _s_ESTypeList *)" type_name="" reason="source_excluded" />
+        <skipped_function id="37552" name="wcsncmp" type_name="" reason="source_excluded" />
+        <skipped_function id="43428" name="_mbtowc_internal" type_name="" reason="source_excluded" />
+        <skipped_function id="22848" name="static bool initialize_pointers()" type_name="" reason="source_excluded" />
+        <skipped_function id="62310" name="static  raise$fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="58416" name="memcpy_repmovs" type_name="" reason="source_excluded" />
+        <skipped_function id="22564" name="_crt_atexit" type_name="" reason="source_excluded" />
+        <skipped_function id="24248" name="static void destroy_ptd_array(struct __acrt_ptd *)" type_name="" reason="source_excluded" />
+        <skipped_function id="49980" name="write_result write_double_translated_ansi_nolock(const int, const char *, const unsigned int, class __crt_cached_ptd_host &amp; const)" type_name="" reason="source_excluded" />
+        <skipped_function id="49552" name="_msize" type_name="" reason="source_excluded" />
+        <skipped_function id="62050" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="61972" name="fin$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="24008" name="static void construct_ptd_array(struct __acrt_ptd *)" type_name="" reason="source_excluded" />
+        <skipped_function id="22840" name="static bool initialize_global_state_isolation()" type_name="" reason="source_excluded" />
+        <skipped_function id="4992" name="static int post_pgo_initialization()" type_name="" reason="source_excluded" />
+        <skipped_function id="41364" name="raise" type_name="" reason="source_excluded" />
+        <skipped_function id="55224" name="static __int64 common_lseek_nolock&lt;__int64&gt;(const int, const __int64, const int, class __crt_cached_ptd_host &amp; const)" type_name="" reason="source_excluded" />
+        <skipped_function id="42352" name="static int common_flush_all(const bool)" type_name="" reason="source_excluded" />
+        <skipped_function id="57056" name="_IsNonwritableInCurrentImage" type_name="" reason="source_excluded" />
+        <skipped_function id="20560" name="operator()()" type_name="&lt;lambda_6e4b09c48022b2350581041d5f6b0c4c&gt;" reason="source_excluded" />
+        <skipped_function id="61875" name="filt$0()" type_name="" reason="name_excluded" />
+        <skipped_function id="18368" name="_set_app_type" type_name="" reason="source_excluded" />
+        <skipped_function id="22580" name="_execute_onexit_table" type_name="" reason="source_excluded" />
+        <skipped_function id="60304" name="memset" type_name="" reason="source_excluded" />
+      </skipped_functions>
+    </module>
+  </modules>
+</results>

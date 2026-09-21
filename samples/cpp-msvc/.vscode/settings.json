@@ -1,0 +1,19 @@
+{
+  // MSVC sample settings for Fucini Coverage Studio.
+
+  "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
+  // Microsoft's collector in its own XML rather than its Cobertura export of
+  // the same run: it says of a line that it ran by half, and Cobertura has no
+  // word for that. Load coverage.cobertura.xml instead and watch line 42 of
+  // thermostat.cpp turn from amber to green.
+  "fuciniCoverage.coverageFile.paths": ["coverage.xml"],
+  // The reports speak of /work/samples/cpp-msvc, as every sample's do. This
+  // maps that prefix back to wherever you cloned the repository.
+  "fuciniCoverage.pathRemap": [{ "from": "/work/samples/cpp-msvc", "to": "${workspaceRoot}" }],
+  // What ran and what never did, on a first open of thermostat.cpp. The
+  // collector counts blocks, not visits, so there is no hit count to put after
+  // a line: a line ran or it did not.
+  "fuciniCoverage.editorGutter.mode": "heatmap",
+  "fuciniCoverage.watch.enabled": true,
+  "fuciniCoverage.history.enabled": true
+}
