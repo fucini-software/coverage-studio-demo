@@ -1,0 +1,18 @@
+{
+  "name": "coverage-studio-demo-ts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TypeScript sample for the Fucini Coverage Studio demo: Istanbul, LCOV, Clover and Cobertura from one vitest run, mapped back to the .ts sources.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "coverage": "node scripts/gen-coverage.mjs"
+  },
+  "devDependencies": {
+    "@vitest/coverage-istanbul": "4.1.11",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}

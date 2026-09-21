@@ -1,0 +1,30 @@
+{
+  // TypeScript sample settings for Fucini Coverage Studio.
+
+  "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
+  // Istanbul's own JSON rather than the LCOV, Clover or Cobertura written from
+  // the same run: it is the only one of the four that keeps statement columns
+  // (the red arrow function inside the covered `receipt` line of loan.ts) and
+  // says what kind of branch each one is (`else`, `case 3`, `operand 2`,
+  // `default value`). Swap in "lcov.info" to see the same run with that detail
+  // gone, or ["unit/coverage-final.json", "integration/coverage-final.json"]
+  // to see two suites merge into the same numbers.
+  "fuciniCoverage.coverageFile.paths": ["coverage-final.json"],
+  // The reports speak of /work/samples/ts, where the lab image mounts this
+  // repository, whichever machine wrote them. This maps that prefix back to
+  // wherever you cloned it.
+  "fuciniCoverage.pathRemap": [{ "from": "/work/samples/ts", "to": "${workspaceRoot}" }],
+  // src/legacy-import.ts is imported by nothing, so no report mentions it.
+  // "list" shows it as not measured instead of leaving it out in silence.
+  "fuciniCoverage.unmeasured.mode": "list",
+  // The tests and the configuration are TypeScript too, and no report mentions
+  // them either; they are not what anybody means by "not measured". The first
+  // entry is the default, kept.
+  "fuciniCoverage.unmeasured.exclude": ["**/*.d.ts", "**/test/**", "**/*.config.ts"],
+  // What ran, how often, and what never did, on a first open of loan.ts.
+  "fuciniCoverage.editorGutter.mode": "heatmap",
+  "fuciniCoverage.hitCounts.inline": true,
+  // Reload when `npm run coverage` has written the reports again.
+  "fuciniCoverage.watch.enabled": true,
+  "fuciniCoverage.history.enabled": true
+}

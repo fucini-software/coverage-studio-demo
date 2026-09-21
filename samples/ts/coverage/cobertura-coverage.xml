@@ -1,0 +1,194 @@
+<?xml version="1.0" ?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage lines-valid="63" lines-covered="43" line-rate="0.6825" branches-valid="46" branches-covered="23" branch-rate="0.5" timestamp="1789990225749" complexity="0" version="0.1">
+  <sources>
+    <source>/work/samples/ts</source>
+  </sources>
+  <packages>
+    <package name="main" line-rate="0.6825" branch-rate="0.5">
+      <classes>
+        <class name="catalogue.ts" filename="src/catalogue.ts" line-rate="0.6520999999999999" branch-rate="0.5714">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="29" hits="2"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="5" signature="()V">
+              <lines>
+                <line number="42" hits="5"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="2" signature="()V">
+              <lines>
+                <line number="53" hits="2"/>
+              </lines>
+            </method>
+            <method name="(anonymous_3)" hits="1" signature="()V">
+              <lines>
+                <line number="70" hits="1"/>
+              </lines>
+            </method>
+            <method name="(anonymous_4)" hits="0" signature="()V">
+              <lines>
+                <line number="81" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_5)" hits="0" signature="()V">
+              <lines>
+                <line number="82" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_6)" hits="0" signature="()V">
+              <lines>
+                <line number="82" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_7)" hits="0" signature="()V">
+              <lines>
+                <line number="91" hits="0"/>
+              </lines>
+            </method>
+            <method name="pick" hits="1" signature="()V">
+              <lines>
+                <line number="109" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="22" hits="2" branch="false"/>
+            <line number="30" hits="2" branch="false"/>
+            <line number="31" hits="3" branch="false"/>
+            <line number="43" hits="5" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="54" hits="2" branch="false"/>
+            <line number="55" hits="2" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="56" hits="0" branch="false"/>
+            <line number="58" hits="2" branch="false"/>
+            <line number="59" hits="2" branch="false"/>
+            <line number="71" hits="1" branch="false"/>
+            <line number="72" hits="1" branch="false"/>
+            <line number="73" hits="1" branch="false"/>
+            <line number="74" hits="1" branch="false"/>
+            <line number="76" hits="0" branch="false"/>
+            <line number="82" hits="0" branch="false"/>
+            <line number="92" hits="0" branch="false"/>
+            <line number="93" hits="0" branch="false"/>
+            <line number="94" hits="0" branch="false"/>
+            <line number="96" hits="0" branch="false"/>
+            <line number="110" hits="1" branch="false"/>
+            <line number="111" hits="2" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="112" hits="1" branch="false"/>
+            <line number="115" hits="0" branch="false"/>
+          </lines>
+        </class>
+        <class name="fees.ts" filename="src/fees.ts" line-rate="0.5714" branch-rate="0.4782">
+          <methods>
+            <method name="lateFee" hits="1" signature="()V">
+              <lines>
+                <line number="24" hits="1"/>
+              </lines>
+            </method>
+            <method name="waivable" hits="2" signature="()V">
+              <lines>
+                <line number="69" hits="2"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="25" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="26" hits="0" branch="false"/>
+            <line number="30" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="31" hits="1" branch="false"/>
+            <line number="32" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="33" hits="0" branch="false"/>
+            <line number="35" hits="0" branch="false"/>
+            <line number="38" hits="1" branch="false"/>
+            <line number="40" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="41" hits="0" branch="false"/>
+            <line number="42" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="43" hits="0" branch="false"/>
+            <line number="46" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="47" hits="0" branch="false"/>
+            <line number="48" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="49" hits="0" branch="false"/>
+            <line number="52" hits="1" branch="true" condition-coverage="50% (2/4)"/>
+            <line number="53" hits="0" branch="false"/>
+            <line number="56" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="57" hits="1" branch="false"/>
+            <line number="70" hits="2" branch="true" condition-coverage="66.66666666666666% (2/3)"/>
+          </lines>
+        </class>
+        <class name="loan.ts" filename="src/loan.ts" line-rate="0.8421" branch-rate="0.5">
+          <methods>
+            <method name="assertNever" hits="0" signature="()V">
+              <lines>
+                <line number="47" hits="0"/>
+              </lines>
+            </method>
+            <method name="loanDays" hits="4" signature="()V">
+              <lines>
+                <line number="58" hits="4"/>
+              </lines>
+            </method>
+            <method name="dueDate" hits="2" signature="()V">
+              <lines>
+                <line number="79" hits="2"/>
+              </lines>
+            </method>
+            <method name="contactOf" hits="1" signature="()V">
+              <lines>
+                <line number="90" hits="1"/>
+              </lines>
+            </method>
+            <method name="canBorrow" hits="3" signature="()V">
+              <lines>
+                <line number="104" hits="3"/>
+              </lines>
+            </method>
+            <method name="renew" hits="1" signature="()V">
+              <lines>
+                <line number="115" hits="1"/>
+              </lines>
+            </method>
+            <method name="receipt" hits="1" signature="()V">
+              <lines>
+                <line number="131" hits="1"/>
+              </lines>
+            </method>
+            <method name="(anonymous_7)" hits="0" signature="()V">
+              <lines>
+                <line number="132" hits="0"/>
+              </lines>
+            </method>
+            <method name="checksum" hits="1" signature="()V">
+              <lines>
+                <line number="142" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="38" hits="2" branch="false"/>
+            <line number="48" hits="0" branch="false"/>
+            <line number="59" hits="4" branch="true" condition-coverage="50% (2/4)"/>
+            <line number="61" hits="3" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="63" hits="1" branch="false"/>
+            <line number="65" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="67" hits="0" branch="false"/>
+            <line number="80" hits="2" branch="false"/>
+            <line number="91" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="105" hits="3" branch="true" condition-coverage="66.66666666666666% (2/3)"/>
+            <line number="116" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="117" hits="1" branch="false"/>
+            <line number="118" hits="1" branch="false"/>
+            <line number="120" hits="1" branch="false"/>
+            <line number="132" hits="1" branch="false"/>
+            <line number="143" hits="1" branch="false"/>
+            <line number="144" hits="1" branch="false"/>
+            <line number="145" hits="12000" branch="false"/>
+            <line number="147" hits="1" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>
