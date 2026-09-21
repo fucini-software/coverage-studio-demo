@@ -10,6 +10,11 @@
   // The reports were generated in the lab image, where this repository is
   // mounted at /work. This maps that prefix back to wherever you cloned it.
   "fuciniCoverage.pathRemap": [{ "from": "/work/samples/dotnet", "to": "${workspaceRoot}" }],
+  // What ran, how often, and what never did, on a first open of Quote.cs — as
+  // in the C, C++ and TypeScript samples. By default the margin shows findings
+  // only, and a first open of an under-tested file would show nothing.
+  "fuciniCoverage.editorGutter.mode": "heatmap",
+  "fuciniCoverage.hitCounts.inline": true,
   "fuciniCoverage.watch.enabled": true,
   "fuciniCoverage.history.enabled": true
 }

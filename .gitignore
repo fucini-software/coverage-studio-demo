@@ -11,3 +11,9 @@ __pycache__/
 *.profraw
 *.profdata
 .nyc_output/
+
+# What Visual Studio keeps beside a folder or a solution it has opened, and
+# where its CMake support builds.
+.vs/
+out/
+*.user
