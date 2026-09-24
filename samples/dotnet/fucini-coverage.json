@@ -1,0 +1,20 @@
+{
+  // Settings for the .NET sample, beside the solution. Coverage Studio for
+  // Visual Studio reads this file after .vscode/settings.json, so a team that
+  // would rather not keep a .vscode folder in a .NET repository keeps this one
+  // instead; the VS Code edition reads it too. The same fuciniCoverage.* keys.
+
+  // A run whose tests failed leaves the last good coverage on screen: a red
+  // run must not paint a green file red.
+  "fuciniCoverage.testRun.skipWhenTestsFail": true,
+  // Currencies.generated.cs is never tested and never counted. This is the
+  // default; it is written here so that turning it off is one edit away — do,
+  // and watch the solution's numbers drop.
+  "fuciniCoverage.ignore.generated": true,
+  // Price() heads the Risk Hotspots section of the Coverage window: complex
+  // and barely tested. 30 is the figure the CRAP metric's authors proposed.
+  "fuciniCoverage.hotspots.crapThreshold": 30,
+  // Quote.cs is below the gates, and the Error List (the Problems panel in VS
+  // Code) says so beside the compiler's own findings, one entry per file.
+  "fuciniCoverage.compliance.diagnostics": true
+}

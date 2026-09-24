@@ -13,9 +13,29 @@ complexity per method, and the extension computes a CRAP score from it
 | `Quote.cs` line 149, `AtLeast` | never a price below the minimum | Coverlet calls it 4 of 4 lines; with `dotnet-coverage.xml` the `return minimum;` is red inside the covered line |
 | `Quote.cs`, `InvoiceNumber` | never called | 0% CodeLens, dead-code warning |
 | `Quote.cs`, `DebugDump` | `[ExcludeFromCodeCoverage]` | Coverlet leaves it out of the report entirely |
+| `Currencies.generated.cs` | a generated table nobody tests: 0 of 28 lines | left out of every total by `fuciniCoverage.ignore.generated` (on by default); turn it off in `fucini-coverage.json` and the solution's line coverage drops from 55% to 35% |
 
 Every type and member carries XML documentation comments, and the file header
 names the author and the copyright holder.
+
+## In Visual Studio
+
+Open `Pricing.sln`. `fucini-coverage.json` beside it is read after
+`.vscode/settings.json` — the file for a team that would rather not keep a
+`.vscode` folder in a .NET repository; the VS Code edition reads it too. Then
+either:
+
+- *Tools → Coverage Studio → Collect Coverage in Test Explorer…* writes a
+  `.runsettings` with Microsoft's Cobertura collector beside the solution; from
+  then on every Test Explorer run writes `TestResults/<run>/*.cobertura.xml`
+  under the test project, which is loaded the moment it appears — nothing hooks
+  Test Explorer; or
+- *Run Tests with Coverage*, which runs `dotnet test` in the Output window.
+  This project references `coverlet.msbuild`, not `coverlet.collector`, so the
+  run uses the collector the test SDK ships,
+  `--collect:"Code Coverage;Format=cobertura"`, and nothing needs installing.
+
+Under the tree of the Coverage window, **Risk hotspots** names `Price` first.
 
 ## The reports
 
