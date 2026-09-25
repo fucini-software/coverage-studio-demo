@@ -1,0 +1,24 @@
+{
+  // Demo workspace settings for Fucini Coverage Studio: one source, two
+  // compilers, two reports — combined into one.
+
+  "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
+  // Both builds' reports. Without a rule the newest would win src/bits.c
+  // outright, and each alone says half of bits_popcount() never ran.
+  "fuciniCoverage.coverageFile.paths": ["clang.json", "gcc/bits.gcov.json.gz"],
+  // Combine them for every file they both measure. "agree" counts a line as
+  // covered only where both builds ran it, and marks in teal the lines where
+  // one did and the other did not: the builtin (clang) and the portable loop
+  // (GCC). Change it to "union" to count a line covered where either ran it,
+  // or drop "combine" to take clang's report alone for src/**.
+  // Choosing a source is part of the paid plans; on Community the newest
+  // report wins the file, as it would without this setting.
+  "fuciniCoverage.coverageFile.sources": [
+    { "files": "src/**", "report": "{clang.json,bits.gcov.json.gz}", "combine": "agree" }
+  ],
+  "fuciniCoverage.watch.enabled": true,
+  // Red, amber and green in the gutter, so the teal lines stand out on
+  // opening bits.c — under "union" too, where they are covered lines.
+  "fuciniCoverage.editorGutter.mode": "coverage",
+  "fuciniCoverage.hitCounts.inline": true
+}

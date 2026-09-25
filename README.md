@@ -71,6 +71,13 @@ toolchain installed:
   filter coverage **by test** in VS Code's Test Coverage view, or load it
   beside `lcov.info` to see which report covered each line.
 
+[`samples/c-cross-check`](samples/c-cross-check) has two more: the same source
+built by clang (`clang.json`) and by GCC (`gcc/bits.gcov.json.gz`), which
+disagree about which half of a function ran. Its settings **combine** them —
+`agree`, covered only where both builds ran a line, with the disagreements in
+teal; or `union`, covered where either did. See its
+[README](samples/c-cross-check/README.md) for when to use which.
+
 ## Regenerating coverage yourself (optional)
 
 If you have a C toolchain installed, you can regenerate the tracefiles from
