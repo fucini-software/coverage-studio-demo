@@ -62,6 +62,22 @@ disappear: a metric a report does not carry is never shown.
 - TRACE32 names *modules*, not files. The `pathRemap` rule from `gearbox` to
   `src/gearbox.cpp` is what lets its figures land on the source file.
 
+## In Visual Studio: a native run with coverage
+
+Open [`Gearbox.sln`](Gearbox.sln). It holds the same two sources as one
+Visual Studio project on the **ClangCL** toolset, and it is the startup
+project. *Tools → Coverage Studio → Run Native Project with Coverage* then
+builds it once more with clang's instrumentation into `coverage/native/`
+(the flags come through a props file the command writes; nothing in the
+project changes), runs it with `LLVM_PROFILE_FILE` set, merges the profile
+with `llvm-profdata`, exports it with `llvm-cov` as `coverage/native/lcov.info`
+and loads that — the live counterpart of the committed `coverage.json`. It
+needs Visual Studio's *C++ Clang tools for Windows* component, which brings
+clang-cl, llvm-profdata and llvm-cov. A project on the MSVC toolset is measured
+the same way where OpenCppCoverage is installed.
+
+`coverage/native/` is a run's output and is not committed.
+
 ## Regenerating
 
 ```powershell

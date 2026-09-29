@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Gearbox.vcxproj: the C++ sample as a Visual Studio project, on the ClangCL
+  toolset. This is the project for "Run Native Project with Coverage" in the
+  Visual Studio edition of Fucini Coverage Studio: set it as the startup
+  project, run the command, and the program is built once more with clang's
+  instrumentation into coverage/native/, run, and its profile exported as lcov
+  and loaded. Nothing here changes for that; the flags come through a props
+  file the command writes.
+
+  The same sources build with CMake (CMakeLists.txt) for every other IDE.
+
+  Author: Mario Fucini
+  Copyright (c) 2026 Fucini Consulting. Released under the MIT License; see the
+  LICENSE file in the repository root.
+-->
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7C2B4E1A-5D3F-4A8B-9E6C-1F0D2A3B4C5D}</ProjectGuid>
+    <RootNamespace>Gearbox</RootNamespace>
+    <ProjectName>Gearbox</ProjectName>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>ClangCL</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseDebugLibraries Condition="'$(Configuration)'=='Debug'">true</UseDebugLibraries>
+    <UseDebugLibraries Condition="'$(Configuration)'=='Release'">false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)build\vs\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\vs\obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization Condition="'$(Configuration)'=='Debug'">Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\gearbox.cpp" />
+    <ClCompile Include="src\gearbox_test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\gearbox.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

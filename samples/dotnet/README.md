@@ -49,6 +49,20 @@ Under the tree of the Coverage window, **Risk hotspots** names `Price` first.
   survives; which arm of a branch was taken does not.
 - `coverage/dotnet-coverage.xml`: Microsoft's collector. No complexity, but a
   column range per statement.
+- `coverage/per-test/<test class>/coverage.cobertura.xml`: one Cobertura report
+  per test class, from the collector the test SDK ships — the shape
+  `fuciniCoverage.testRun.perTest` writes. The suite is two classes for this
+  reason: `QuoteTests` reaches `Price`, `ShippingTests` reaches `Shipping`.
+
+## Which tests ran this line
+
+Load the per-test reports — *Pick Coverage File…* on the folder
+`coverage/per-test`, or add `${workspaceFolder}/coverage/per-test/**/coverage.cobertura.xml`
+to `fuciniCoverage.coverageFile.paths` — and every line knows its class: the
+hover names it, the CodeLens says `run by 1 test(s)`, and **Show Tests That
+Ran This Line** on `Quote.Shipping` lists `ShippingTests`, on `Quote.Price`
+lists `QuoteTests`, and opens the one you pick. They are not loaded by default,
+so that the numbers of the other reports stand alone.
 
 Coverlet's OpenCover file writes a placeholder column (`sc="1" ec="2"`) on
 every point, so the extension deliberately paints no sub-line spans from it.

@@ -6,6 +6,12 @@
   // count per branch arm, where Cobertura flattens a decision into "50% (1/2)".
   // Both carry the per-method cyclomatic complexity that the CRAP score and the
   // Riskiest Methods table are computed from.
+  // Not in the list on purpose: the per-test reports, one per test class, for
+  // "Show Tests That Ran This Line". Add
+  // "${workspaceFolder}/coverage/per-test/**/coverage.cobertura.xml" when you
+  // want them — '**' stands for any depth, and a report written under that
+  // folder later loads as it lands (Coverage Studio 1.2026.6 or later) — so
+  // the numbers above stand alone until then (see README.md).
   "fuciniCoverage.coverageFile.paths": ["coverage.opencover.xml"],
   // The reports were generated in the lab image, where this repository is
   // mounted at /work. This maps that prefix back to wherever you cloned it.

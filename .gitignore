@@ -17,3 +17,8 @@ __pycache__/
 .vs/
 out/
 *.user
+
+# What "Run Native Project with Coverage" writes for samples/cpp/Gearbox.sln:
+# an instrumented build, its profile and the lcov export — this machine's,
+# made again on every run.
+**/coverage/native/

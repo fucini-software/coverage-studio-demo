@@ -28,10 +28,25 @@ dotnet test test/Pricing.Tests \
 dotnet-coverage collect -f xml -o coverage/dotnet-coverage.xml \
   "dotnet test test/Pricing.Tests --no-build"
 
+# One report per test class, with the collector the test SDK ships — the shape
+# Coverage Studio's testRun.perTest writes, so that "Show Tests That Ran This
+# Line" can name the class. The collector names its file after the user and
+# the machine; it is renamed to what Coverlet would have written.
+for class in Pricing.Tests.QuoteTests Pricing.Tests.ShippingTests; do
+  dir="coverage/per-test/$class"
+  dotnet test test/Pricing.Tests --no-build \
+    --collect:"Code Coverage;Format=cobertura" \
+    --results-directory "$dir" \
+    --filter "FullyQualifiedName~$class"
+  report="$(find "$dir" -name '*.cobertura.xml' | head -n 1)"
+  mv "$report" "$dir/coverage.cobertura.xml"
+  find "$dir" -mindepth 1 -type d -exec rm -rf {} +
+done
+
 {
   echo "- dotnet $(dotnet --version)"
   echo "- $(dotnet-coverage --version | head -n 1)"
   echo "- coverlet.msbuild $(sed -n 's/.*coverlet.msbuild" Version="\([^"]*\)".*/\1/p' test/Pricing.Tests/Pricing.Tests.csproj)"
 } > coverage/VERSIONS.txt
 
-echo "Wrote coverage/ (OpenCover, Cobertura, dotnet-coverage XML)."
+echo "Wrote coverage/ (OpenCover, Cobertura, dotnet-coverage XML, one Cobertura per test class under per-test/)."
