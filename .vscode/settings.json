@@ -15,6 +15,19 @@
   // `buffer_can_write`, which every other metric reports as healthy. Both
   // files come from the same build (see scripts/gen-coverage), so switching
   // this to ["lcov.info"] shows the same code measured the poorer way.
+  //
+  // Since Coverage Studio 1.2026.6 an entry may be absolute and hold a
+  // wildcard: '*' stands for part of one name, '**' for any depth, the folders
+  // before the first wildcard are where it looks, and a matching report that
+  // appears there later is loaded as it lands. One such entry would load
+  // every sample that writes a coverage.json — C, C++ and Python — with the
+  // lab's /work prefix mapped back to this checkout:
+  //   "fuciniCoverage.coverageFile.paths": ["${workspaceFolder}/samples/*/coverage/coverage.json"],
+  //   "fuciniCoverage.pathRemap": [{ "from": "/work", "to": "${workspaceRoot}" }],
+  // Not set here, so that the root keeps showing the C sample alone; the
+  // samples' own settings use such entries where a folder holds several
+  // reports (c-cross-check, and the per-suite alternatives in js, ts, python
+  // and dotnet).
   "fuciniCoverage.coverageFile.paths": ["coverage.json"],
   // Auto-reload when a tracefile here changes — handy while re-running
   // scripts/gen-coverage.(sh|ps1) to try a different compiler.

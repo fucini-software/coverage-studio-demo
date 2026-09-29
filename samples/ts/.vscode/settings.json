@@ -7,8 +7,9 @@
   // (the red arrow function inside the covered `receipt` line of loan.ts) and
   // says what kind of branch each one is (`else`, `case 3`, `operand 2`,
   // `default value`). Swap in "lcov.info" to see the same run with that detail
-  // gone, or ["unit/coverage-final.json", "integration/coverage-final.json"]
-  // to see two suites merge into the same numbers.
+  // gone, or "${workspaceFolder}/coverage/*/coverage-final.json" — the unit/
+  // and integration/ suites, one wildcard (Coverage Studio 1.2026.6 or later)
+  // — to see two suites merge into the same numbers.
   "fuciniCoverage.coverageFile.paths": ["coverage-final.json"],
   // The reports speak of /work/samples/ts, where the lab image mounts this
   // repository, whichever machine wrote them. This maps that prefix back to

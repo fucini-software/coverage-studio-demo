@@ -3,9 +3,13 @@
   // compilers, two reports — combined into one.
 
   "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
-  // Both builds' reports. Without a rule the newest would win src/bits.c
-  // outright, and each alone says half of bits_popcount() never ran.
-  "fuciniCoverage.coverageFile.paths": ["clang.json", "gcc/bits.gcov.json.gz"],
+  // Both builds' reports. gcov writes one JSON per translation unit it is asked
+  // about, named after the source, so the GCC side is a wildcard in an absolute
+  // entry (Coverage Studio 1.2026.6 or later): the folder before the '*' is
+  // where it looks, and a report written there later loads as it lands. Today
+  // that is bits.gcov.json.gz alone. Without a rule the newest would win
+  // src/bits.c outright, and each alone says half of bits_popcount() never ran.
+  "fuciniCoverage.coverageFile.paths": ["clang.json", "${workspaceFolder}/coverage/gcc/*.gcov.json.gz"],
   // Combine them for every file they both measure. "agree" counts a line as
   // covered only where both builds ran it, and marks in teal the lines where
   // one did and the other did not: the builtin (clang) and the portable loop

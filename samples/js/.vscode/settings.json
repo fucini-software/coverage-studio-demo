@@ -6,7 +6,10 @@
   // the same run: it is the only one of the four that keeps statement columns
   // (the red `item.sku` inside a covered line 40 of cart.js) and says what kind
   // of branch each one is (`else`, `case 3`, `operand 2`). Swap in "lcov.info"
-  // to see the same run with that detail gone.
+  // to see the same run with that detail gone, or
+  // "${workspaceFolder}/coverage/*/coverage-final.json" — the unit/ and
+  // integration/ suites, one wildcard (Coverage Studio 1.2026.6 or later) —
+  // to see two suites merge into the same numbers.
   "fuciniCoverage.coverageFile.paths": ["coverage-final.json"],
   // The reports were generated in the lab image, where this repository is
   // mounted at /work. This maps that prefix back to wherever you cloned it.

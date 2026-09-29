@@ -102,3 +102,26 @@ The clang mode writes `coverage.json` and `lcov.info` together, from one run,
 so the two never drift apart. The per-test option builds the test program three
 times more, once per part of the suite, so each `TN:` section is a real run of
 that part rather than numbers split out of the combined one.
+
+## The tasks, and what they need
+
+[`.vscode/tasks.json`](.vscode/tasks.json) has a task per sample — **Terminal →
+Run Task…**, or `Ctrl+Shift+B` for the C sample under clang — plus the test
+runs alone and the lab. Each coverage task writes into its sample's `coverage/`
+folder, which that sample's settings watch, so the editor reloads by itself.
+None of this is needed to *look* at the demo: the reports are committed. It is
+needed to regenerate them.
+
+One install of **Visual Studio 2026** covers most of it, any edition, with the
+workloads named below. Only the GCC side and Docker come from elsewhere.
+
+| Task | What it runs | Where that comes from |
+| --- | --- | --- |
+| `coverage: C (clang, …)`, the clang half of `C cross-check`, `C++ (clang++, …)` | `clang`, `llvm-profdata`, `llvm-cov`, and the MSVC libraries clang links its profile runtime against | *Desktop development with C++* with its *C++ Clang Compiler for Windows* component. MC/DC needs clang 18 or newer, which it is. The installer does not put `VC\Tools\Llvm\x64\bin` on PATH; do that yourself. |
+| `coverage: C++ MSVC` | `cl`, `link /PROFILE`, Microsoft's code coverage collector | *Desktop development with C++*. The collector ships with the Enterprise edition; on the others the script uses `dotnet tool install -g dotnet-coverage`, the same collector. |
+| `coverage: .NET`, `coverage: Visual Basic`, `test: .NET`, `test: Visual Basic` | `dotnet` with the .NET 10 SDK; Coverlet is a package reference of the test projects | *.NET desktop development*. |
+| `coverage: JavaScript`, `coverage: TypeScript`, `test: JavaScript`, `test: TypeScript` | `node` 20 or newer and `npm` | *Node.js development*, or nodejs.org. |
+| `coverage: Python`, `test: Python` | `python` 3 with the `coverage` package (`pip install coverage`) | *Python development*, or python.org. |
+| `coverage: JavaScript`, `coverage: Python`, `lab: …` | a POSIX `sh` for the `generate.sh` scripts, taken from Git Bash | the *Git for Windows* component, or gitforwindows.org. The tasks expect `C:\Program Files\Git\bin\bash.exe`; four lines in `tasks.json` say where. |
+| `coverage: C (gcc)`, the GCC half of `C cross-check` | `gcc` and `gcov`; `lcov` too for the C sample | Not in Visual Studio: MinGW-w64 GCC (MSYS2 or WinLibs) and `lcov` (MSYS2 packages it), both on PATH. |
+| `lab: …` | `docker` with BuildKit, and `sh` | Docker Desktop. The images hold every toolchain above, Linux side, so a machine with Docker and Git Bash alone regenerates everything. `docker-bake.hcl` tags no `cpp` or `ts` image: tag the `c` image as `cpp` and the `js` image as `ts` before regenerating those two. |

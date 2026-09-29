@@ -4,7 +4,10 @@
   "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
   // coverage.py's own JSON rather than the Cobertura or LCOV written from the
   // same run: it keeps `# pragma: no cover` lines as excluded instead of
-  // dropping them, and it says which way each branch went.
+  // dropping them, and it says which way each branch went. Swap in
+  // "${workspaceFolder}/coverage/*/coverage.json" — the posting/, closing/ and
+  // reconcile/ suites, one wildcard (Coverage Studio 1.2026.6 or later) — to
+  // see three runs of one test class each merge into the same numbers.
   "fuciniCoverage.coverageFile.paths": ["coverage.json"],
   // The reports were generated in the lab image, where this repository is
   // mounted at /work. This maps that prefix back to wherever you cloned it.

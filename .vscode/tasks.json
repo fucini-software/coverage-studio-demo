@@ -1,0 +1,270 @@
+{
+  // Handy tasks for the demo: regenerate a sample's reports, run a sample's
+  // tests, or do either in the lab images. Terminal → Run Task…, or
+  // Ctrl+Shift+B for the default build task, the C sample under clang.
+  //
+  // Every coverage task writes into its sample's coverage/ folder, which the
+  // sample's settings watch (fuciniCoverage.watch.enabled), so the editor
+  // reloads by itself when the task ends. The PowerShell generators need their
+  // toolchain on PATH; each script's header says which. The rest runs with
+  // dotnet, node, python or docker as installed.
+  //
+  // generate.sh and generate-all.sh are POSIX shell. On Windows they run under
+  // Git Bash from its usual place, C:\Program Files\Git\bin\bash.exe; change
+  // the four "executable" lines if Git for Windows lives elsewhere.
+  "version": "2.0.0",
+  "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+  "tasks": [
+    // ---- C: samples/c (llvm-cov, lcov, MC/DC) ------------------------------
+    {
+      "label": "coverage: C (clang, MC/DC)",
+      "detail": "samples/c/scripts/gen-coverage.ps1 clang → coverage/coverage.json (llvm-cov JSON: regions, branches, MC/DC) and coverage/lcov.info from the same run. Needs LLVM/Clang on PATH.",
+      "type": "process",
+      "command": "pwsh",
+      "args": ["-NoProfile", "-File", "${workspaceFolder}/samples/c/scripts/gen-coverage.ps1", "clang"],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": { "base": "$gcc", "fileLocation": ["relative", "${workspaceFolder}/samples/c"] }
+    },
+    {
+      "label": "coverage: C (clang, per test)",
+      "detail": "The same, plus coverage/per-test.info: the calc, buffer and sensor parts of the suite each built and run on their own, as TN:calc, TN:buffer and TN:sensor.",
+      "type": "process",
+      "command": "pwsh",
+      "args": ["-NoProfile", "-File", "${workspaceFolder}/samples/c/scripts/gen-coverage.ps1", "clang", "-PerTest"],
+      "group": "build",
+      "problemMatcher": { "base": "$gcc", "fileLocation": ["relative", "${workspaceFolder}/samples/c"] }
+    },
+    {
+      "label": "coverage: C (gcc)",
+      "detail": "samples/c/scripts/gen-coverage.ps1 gcc → coverage/lcov.info via gcov and lcov: the same code measured by a format without regions or MC/DC. Needs MinGW gcc and lcov on PATH.",
+      "type": "process",
+      "command": "pwsh",
+      "args": ["-NoProfile", "-File", "${workspaceFolder}/samples/c/scripts/gen-coverage.ps1", "gcc"],
+      "group": "build",
+      "problemMatcher": { "base": "$gcc", "fileLocation": ["relative", "${workspaceFolder}/samples/c"] }
+    },
+
+    // ---- C: samples/c-cross-check (clang and GCC, combined) ----------------
+    {
+      "label": "coverage: C cross-check (clang and GCC)",
+      "detail": "samples/c-cross-check/scripts/gen-coverage.ps1 → coverage/clang.json and coverage/gcc/bits.gcov.json.gz: one source, two builds, two reports that disagree. Needs LLVM/Clang, MinGW GCC and the Visual C++ build tools.",
+      "type": "process",
+      "command": "pwsh",
+      "args": ["-NoProfile", "-File", "${workspaceFolder}/samples/c-cross-check/scripts/gen-coverage.ps1"],
+      "group": "build",
+      "problemMatcher": { "base": "$gcc", "fileLocation": ["relative", "${workspaceFolder}/samples/c-cross-check"] }
+    },
+
+    // ---- C++: samples/cpp and samples/cpp-msvc -----------------------------
+    {
+      "label": "coverage: C++ (clang++, MC/DC and instantiations)",
+      "detail": "samples/cpp/scripts/gen-coverage.ps1 → coverage/coverage.json (llvm-cov JSON: functions, lines, regions, branches, MC/DC, template instantiations). Needs LLVM/Clang 18 or newer on PATH.",
+      "type": "process",
+      "command": "pwsh",
+      "args": ["-NoProfile", "-File", "${workspaceFolder}/samples/cpp/scripts/gen-coverage.ps1"],
+      "group": "build",
+      "problemMatcher": { "base": "$gcc", "fileLocation": ["relative", "${workspaceFolder}/samples/cpp"] }
+    },
+    {
+      "label": "coverage: C++ MSVC (Microsoft's collector)",
+      "detail": "samples/cpp-msvc/scripts/gen-coverage.ps1 → coverage/coverage.xml (the collector's own XML, blocks) and coverage/coverage.cobertura.xml, their paths rewritten to /work/samples/cpp-msvc as committed; add -Local to keep this machine's. Needs Visual Studio's C++ workload.",
+      "type": "process",
+      "command": "pwsh",
+      "args": ["-NoProfile", "-File", "${workspaceFolder}/samples/cpp-msvc/scripts/gen-coverage.ps1"],
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+
+    // ---- .NET and Visual Basic: samples/dotnet and samples/vb --------------
+    {
+      "label": "coverage: .NET (Coverlet)",
+      "detail": "dotnet test with Coverlet → samples/dotnet/coverage/coverage.opencover.xml and coverage.cobertura.xml. The Coverlet half of generate.sh, without the dotnet-coverage and per-test reports; the paths inside are this machine's, not /work/samples/dotnet, which the sample's pathRemap then leaves alone.",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "test", "test/Pricing.Tests",
+        "-p:CollectCoverage=true",
+        "-p:CoverletOutputFormat=opencover%2ccobertura",
+        "-p:CoverletOutput=${workspaceFolder}/samples/dotnet/coverage/"
+      ],
+      "options": { "cwd": "${workspaceFolder}/samples/dotnet" },
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "coverage: Visual Basic (Coverlet)",
+      "detail": "samples/vb/scripts/gen-coverage.ps1 → coverage/coverage.opencover.xml and coverage.cobertura.xml, their paths rewritten to /work/samples/vb as committed; add -Local to keep this machine's. Needs the .NET 10 SDK.",
+      "type": "process",
+      "command": "pwsh",
+      "args": ["-NoProfile", "-File", "${workspaceFolder}/samples/vb/scripts/gen-coverage.ps1"],
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+
+    // ---- JavaScript, TypeScript, Python: samples/js, samples/ts, samples/python
+    {
+      "label": "coverage: JavaScript (nyc)",
+      "detail": "samples/js/generate.sh → coverage/coverage-final.json, lcov.info, clover.xml, cobertura-coverage.xml, and the unit/ and integration/ suites each on their own. Needs node; runs npm ci first.",
+      "type": "shell",
+      "command": "sh generate.sh",
+      "options": { "cwd": "${workspaceFolder}/samples/js" },
+      "windows": {
+        "options": {
+          "cwd": "${workspaceFolder}/samples/js",
+          "shell": { "executable": "C:\\Program Files\\Git\\bin\\bash.exe", "args": ["-lc"] }
+        }
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "coverage: TypeScript (vitest)",
+      "detail": "npm run coverage in samples/ts: scripts/gen-coverage.mjs → coverage/coverage-final.json, lcov.info, clover.xml, cobertura-coverage.xml, and the unit/ and integration/ suites each on their own. Needs node and a prior npm ci.",
+      "type": "shell",
+      "command": "npm run coverage",
+      "options": { "cwd": "${workspaceFolder}/samples/ts" },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "coverage: Python (coverage.py)",
+      "detail": "samples/python/generate.sh → coverage/coverage.json (with contexts), coverage.xml, lcov.info, and the posting/, closing/ and reconcile/ suites each on their own. Needs python with the coverage package (pip install coverage).",
+      "type": "shell",
+      "command": "sh generate.sh",
+      "options": { "cwd": "${workspaceFolder}/samples/python" },
+      "windows": {
+        "options": {
+          "cwd": "${workspaceFolder}/samples/python",
+          "shell": { "executable": "C:\\Program Files\\Git\\bin\\bash.exe", "args": ["-lc"] }
+        }
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+
+    // ---- Tests alone, no coverage ------------------------------------------
+    // The C and C++ test programs are built and run by their coverage tasks.
+    {
+      "label": "test: JavaScript",
+      "detail": "npm test in samples/js: the unit and the integration suite.",
+      "type": "shell",
+      "command": "npm test",
+      "options": { "cwd": "${workspaceFolder}/samples/js" },
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "test: TypeScript",
+      "detail": "npm test in samples/ts: vitest run.",
+      "type": "shell",
+      "command": "npm test",
+      "options": { "cwd": "${workspaceFolder}/samples/ts" },
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "test: Python",
+      "detail": "python run_tests.py in samples/python: all three test classes.",
+      "type": "process",
+      "command": "python",
+      "args": ["run_tests.py"],
+      "options": { "cwd": "${workspaceFolder}/samples/python" },
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "test: .NET",
+      "detail": "dotnet test samples/dotnet/Pricing.sln.",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["test", "Pricing.sln"],
+      "options": { "cwd": "${workspaceFolder}/samples/dotnet" },
+      "group": "test",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "test: Visual Basic",
+      "detail": "dotnet test samples/vb/Payroll.sln.",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["test", "Payroll.sln"],
+      "options": { "cwd": "${workspaceFolder}/samples/vb" },
+      "group": "test",
+      "problemMatcher": "$msCompile"
+    },
+
+    // ---- The lab: every sample regenerated in the image built for it -------
+    // docker/Dockerfile has one stage per toolchain; docker-bake.hcl tags them
+    // coverage-studio-lab:<name>, and scripts/generate-all.sh runs each sample's
+    // generate.sh in the image of the sample's name, mounting this repository
+    // at /work — which is why the committed reports speak of /work/samples/…
+    // Note that the bake file tags the dotnet image as vb too, but not the c
+    // image as cpp nor the js image as ts, so those two samples need their tag
+    // first: docker tag coverage-studio-lab:c coverage-studio-lab:cpp, and
+    // likewise js → ts.
+    {
+      "label": "lab: build every image",
+      "detail": "docker buildx bake -f docker/docker-bake.hcl: the c, js, python, go and dotnet stages.",
+      "type": "process",
+      "command": "docker",
+      "args": ["buildx", "bake", "-f", "docker/docker-bake.hcl"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "lab: build one image…",
+      "detail": "docker buildx bake -f docker/docker-bake.hcl <target>, for the stage you pick.",
+      "type": "process",
+      "command": "docker",
+      "args": ["buildx", "bake", "-f", "docker/docker-bake.hcl", "${input:labImage}"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "lab: regenerate every sample",
+      "detail": "scripts/generate-all.sh: each sample's generate.sh in its lab image, then samples/VERSIONS.md with the tool versions used. Needs docker and the images built.",
+      "type": "shell",
+      "command": "sh scripts/generate-all.sh",
+      "options": { "cwd": "${workspaceFolder}" },
+      "windows": {
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": { "executable": "C:\\Program Files\\Git\\bin\\bash.exe", "args": ["-lc"] }
+        }
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "lab: regenerate one sample…",
+      "detail": "scripts/generate-all.sh <sample>: that sample's generate.sh in its lab image. Needs docker and the image built.",
+      "type": "shell",
+      "command": "sh scripts/generate-all.sh ${input:sample}",
+      "options": { "cwd": "${workspaceFolder}" },
+      "windows": {
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": { "executable": "C:\\Program Files\\Git\\bin\\bash.exe", "args": ["-lc"] }
+        }
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      // The samples that have a generate.sh. c-cross-check and cpp-msvc are
+      // Windows-only PowerShell scripts, run by their coverage tasks above.
+      "id": "sample",
+      "type": "pickString",
+      "description": "Which sample to regenerate in its lab image?",
+      "options": ["c", "cpp", "js", "ts", "python", "dotnet", "vb"],
+      "default": "c"
+    },
+    {
+      "id": "labImage",
+      "type": "pickString",
+      "description": "Which lab image to build?",
+      "options": ["c", "js", "python", "go", "dotnet"],
+      "default": "c"
+    }
+  ]
+}

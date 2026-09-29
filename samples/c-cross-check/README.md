@@ -18,7 +18,9 @@ intrinsic, an assembler routine or a vendor library beside a fallback.
 
 ## What opening it shows
 
-`.vscode/settings.json` loads both and combines them for `src/**`:
+`.vscode/settings.json` loads both — the GCC side as
+`${workspaceFolder}/coverage/gcc/*.gcov.json.gz`, one gcov JSON per translation
+unit — and combines them for `src/**`:
 
 ```jsonc
 "fuciniCoverage.coverageFile.sources": [
