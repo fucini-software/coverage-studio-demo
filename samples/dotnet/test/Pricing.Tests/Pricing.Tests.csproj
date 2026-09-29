@@ -14,6 +14,11 @@
 
   <ItemGroup>
     <PackageReference Include="coverlet.msbuild" Version="6.0.4" PrivateAssets="all" />
+    <!-- Coverlet's collector too: Run Tests with Coverage, Run This Test and a
+         run after a save then measure with Coverlet, as the committed reports
+         were, rather than with Microsoft's collector, which counts lines its
+         own way — the same method read 37% and then 24% after a save. -->
+    <PackageReference Include="coverlet.collector" Version="6.0.4" PrivateAssets="all" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageReference Include="xunit" Version="2.9.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" PrivateAssets="all" />

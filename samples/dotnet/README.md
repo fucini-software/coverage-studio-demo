@@ -31,9 +31,13 @@ either:
   under the test project, which is loaded the moment it appears — nothing hooks
   Test Explorer; or
 - *Run Tests with Coverage*, which runs `dotnet test` in the Output window.
-  This project references `coverlet.msbuild`, not `coverlet.collector`, so the
-  run uses the collector the test SDK ships,
-  `--collect:"Code Coverage;Format=cobertura"`, and nothing needs installing.
+  This project references `coverlet.collector` beside `coverlet.msbuild`, so
+  the run uses Coverlet's collector, `--collect:"XPlat Code Coverage"`, and
+  measures as the committed reports do: `Price` is 13 of 35 lines before a run
+  and after one. Without the collector the run would use the one the test SDK
+  ships, which counts lines its own way — the same method read 24% after a
+  save that changed no test. *Run This Test with Coverage* and
+  `testRun.onSave` run the same collector.
 
 Under the tree of the Coverage window, **Risk hotspots** names `Price` first.
 
