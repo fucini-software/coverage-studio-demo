@@ -21,13 +21,17 @@ target "_lab" {
 target "c" {
   inherits = ["_lab"]
   target   = "c"
-  tags     = ["coverage-studio-lab:c"]
+  // Two names for one image, as for dotnet below: the C++ sample's generator
+  // runs in the C image, and generate-all.sh looks an image up by the sample's
+  // name — without the second tag it stopped at "cpp" with no such image.
+  tags     = ["coverage-studio-lab:c", "coverage-studio-lab:cpp"]
 }
 
 target "js" {
   inherits = ["_lab"]
   target   = "js"
-  tags     = ["coverage-studio-lab:js"]
+  // …and the TypeScript sample's in the JavaScript one.
+  tags     = ["coverage-studio-lab:js", "coverage-studio-lab:ts"]
 }
 
 target "python" {

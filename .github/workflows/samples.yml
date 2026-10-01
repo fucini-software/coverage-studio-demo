@@ -1,0 +1,92 @@
+# @file samples.yml
+# @brief Regenerate every sample in the lab images and check each still writes its reports.
+# @author Mario Fucini
+# @copyright Copyright (c) 2026 Fucini Consulting. Released under the MIT
+#            License; see the LICENSE file in the repository root.
+#
+# The reports in this repository are committed, so a sample can stop building —
+# a toolchain image moves on, a dependency is withdrawn — and nothing shows it
+# until somebody regenerates by hand. This does it on every change, and once a
+# week for the changes that come from outside: the images are built from
+# docker/Dockerfile, every generate.sh is run in the image made for it, and
+# each sample is then asked for the reports its generator says it writes.
+#
+# Nothing is committed back: the regenerated reports are kept as an artifact
+# of the run. Not regenerated here: cpp-msvc and c-cross-check, which need a
+# Windows toolchain.
+name: Samples
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    # Mondays, 05:00 UTC.
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regenerate:
+    name: Regenerate the samples
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # --load: with a buildx builder that is not the docker driver the images
+      # would stay in the build cache, and `docker run` would not find them.
+      - name: Build the lab images
+        run: docker buildx bake -f docker/docker-bake.hcl --load
+
+      - name: Regenerate every sample
+        run: sh scripts/generate-all.sh
+
+      # What each generator's header says it writes. A report that is missing
+      # or empty is a sample that no longer builds, whatever the exit codes said.
+      - name: Every sample wrote its reports
+        run: |
+          status=0
+          check() { # <sample> <report>...
+            sample="$1"; shift
+            for report in "$@"; do
+              if [ ! -s "samples/$sample/coverage/$report" ]; then
+                echo "::error::samples/$sample/coverage/$report is missing or empty"
+                status=1
+              fi
+            done
+          }
+          check c coverage.json lcov.info per-test.info \
+                  gcovr/cobertura.xml gcovr/sonarqube.xml gcovr/coveralls.json \
+                  gcovr/clover.xml gcovr/jacoco.xml gcovr/gcovr.json
+          check cpp coverage.json
+          check dotnet coverage.opencover.xml coverage.cobertura.xml dotnet-coverage.xml \
+                  per-test/Pricing.Tests.QuoteTests/coverage.cobertura.xml \
+                  per-test/Pricing.Tests.ShippingTests/coverage.cobertura.xml
+          check js coverage-final.json lcov.info clover.xml cobertura-coverage.xml \
+                  unit/coverage-final.json integration/coverage-final.json
+          check python coverage.json coverage.xml lcov.info \
+                  posting/coverage.json closing/coverage.json reconcile/coverage.json
+          check ts coverage-final.json lcov.info clover.xml cobertura-coverage.xml \
+                  unit/coverage-final.json integration/coverage-final.json
+          check vb coverage.opencover.xml coverage.cobertura.xml
+          exit $status
+
+      # What moved against the committed reports, for whoever reads the run:
+      # hit counts and totals should not, timestamps and versions will.
+      - name: What changed against the committed reports
+        if: always()
+        run: git status --short -- samples | head -n 60
+
+      - name: Keep the regenerated reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sample-reports
+          path: |
+            samples/*/coverage
+            samples/VERSIONS.md
+          if-no-files-found: warn
