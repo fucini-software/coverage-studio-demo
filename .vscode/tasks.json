@@ -44,6 +44,17 @@
       "problemMatcher": { "base": "$gcc", "fileLocation": ["relative", "${workspaceFolder}/samples/c"] }
     },
 
+    // ---- C: samples/c-gcc14 (gcc 14, condition coverage) ------------------
+    {
+      "label": "coverage: C gcc 14 (condition coverage)",
+      "detail": "samples/c-gcc14/generate.sh → coverage/alarm.gcov.json.gz: a build with -fcondition-coverage and gcov --conditions, which operand of each decision was never seen true or false. Needs gcc 14 or newer and its gcov on PATH.",
+      "type": "shell",
+      "command": "sh generate.sh",
+      "options": { "cwd": "${workspaceFolder}/samples/c-gcc14" },
+      "group": "build",
+      "problemMatcher": { "base": "$gcc", "fileLocation": ["relative", "${workspaceFolder}/samples/c-gcc14"] }
+    },
+
     // ---- C: samples/c-cross-check (clang and GCC, combined) ----------------
     {
       "label": "coverage: C cross-check (clang and GCC)",
@@ -97,6 +108,26 @@
       "type": "process",
       "command": "pwsh",
       "args": ["-NoProfile", "-File", "${workspaceFolder}/samples/vb/scripts/gen-coverage.ps1"],
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+
+    // ---- .NET: the console app, and the mutation run ------------------------
+    {
+      "label": "coverage: .NET console app (dotnet-coverage)",
+      "detail": "samples/dotnet-app/generate.sh → coverage/app/coverage.cobertura.xml: one plain run of the app under Microsoft's collector, what Run App with Coverage… does. Needs the .NET 10 SDK and dotnet-coverage.",
+      "type": "shell",
+      "command": "sh generate.sh",
+      "options": { "cwd": "${workspaceFolder}/samples/dotnet-app" },
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "mutation: .NET (Stryker.NET)",
+      "detail": "dotnet stryker over samples/dotnet's library → coverage/mutation-report.json, the whole file where Run Mutation Tests Here mutates one function. About a minute. Needs the .NET 10 SDK and dotnet-stryker (dotnet tool install -g dotnet-stryker).",
+      "type": "shell",
+      "command": "sh -c 'dotnet stryker --test-project test/Pricing.Tests/Pricing.Tests.csproj --project Pricing.csproj --reporter json --reporter progress && mv StrykerOutput/*/reports/mutation-report.json coverage/mutation-report.json && rm -r StrykerOutput'",
+      "options": { "cwd": "${workspaceFolder}/samples/dotnet" },
       "group": "build",
       "problemMatcher": "$msCompile"
     },
@@ -256,7 +287,7 @@
       "id": "sample",
       "type": "pickString",
       "description": "Which sample to regenerate in its lab image?",
-      "options": ["c", "cpp", "js", "ts", "python", "dotnet", "vb"],
+      "options": ["c", "c-gcc14", "cpp", "js", "ts", "python", "dotnet", "dotnet-app", "vb"],
       "default": "c"
     },
     {

@@ -62,10 +62,12 @@ jobs:
           check c coverage.json lcov.info per-test.info \
                   gcovr/cobertura.xml gcovr/sonarqube.xml gcovr/coveralls.json \
                   gcovr/clover.xml gcovr/jacoco.xml gcovr/gcovr.json
+          check c-gcc14 alarm.gcov.json.gz
           check cpp coverage.json
           check dotnet coverage.opencover.xml coverage.cobertura.xml dotnet-coverage.xml \
                   per-test/Pricing.Tests.QuoteTests/coverage.cobertura.xml \
-                  per-test/Pricing.Tests.ShippingTests/coverage.cobertura.xml
+                  per-test/Pricing.Tests.ShippingTests/coverage.cobertura.xml mutation-report.json
+          check dotnet-app app/coverage.cobertura.xml
           check js coverage-final.json lcov.info clover.xml cobertura-coverage.xml \
                   unit/coverage-final.json integration/coverage-final.json
           check python coverage.json coverage.xml lcov.info \

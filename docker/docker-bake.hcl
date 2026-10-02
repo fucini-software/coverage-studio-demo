@@ -21,10 +21,10 @@ target "_lab" {
 target "c" {
   inherits = ["_lab"]
   target   = "c"
-  // Two names for one image, as for dotnet below: the C++ sample's generator
-  // runs in the C image, and generate-all.sh looks an image up by the sample's
+  // Three names for one image, as for dotnet below: the C++ and the gcc 14
+  // samples' generators run in the C image, and generate-all.sh looks an image up by the sample's
   // name — without the second tag it stopped at "cpp" with no such image.
-  tags     = ["coverage-studio-lab:c", "coverage-studio-lab:cpp"]
+  tags     = ["coverage-studio-lab:c", "coverage-studio-lab:cpp", "coverage-studio-lab:c-gcc14"]
 }
 
 target "js" {
@@ -49,7 +49,8 @@ target "go" {
 target "dotnet" {
   inherits = ["_lab"]
   target   = "dotnet"
-  // Two names for one image: generate-all.sh looks an image up by the sample's
-  // name, and the Visual Basic sample needs what the .NET one needs.
-  tags     = ["coverage-studio-lab:dotnet", "coverage-studio-lab:vb"]
+  // Three names for one image: generate-all.sh looks an image up by the sample's
+  // name, and the Visual Basic sample and the console app need what the .NET
+  // one needs.
+  tags     = ["coverage-studio-lab:dotnet", "coverage-studio-lab:vb", "coverage-studio-lab:dotnet-app"]
 }

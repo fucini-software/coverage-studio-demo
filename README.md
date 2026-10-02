@@ -78,6 +78,15 @@ disagree about which half of a function ran. Its settings **combine** them —
 teal; or `union`, covered where either did. See its
 [README](samples/c-cross-check/README.md) for when to use which.
 
+Three samples are there for one feature each: [`samples/c-gcc14`](samples/c-gcc14)
+for gcc 14's **condition coverage** (which operand of a decision was never
+seen true or false — gcov's JSON with `--conditions`), [`samples/dotnet`](samples/dotnet)
+with a **Stryker.NET mutation report** beside its coverage, which marks the
+surviving mutants in `Quote.cs` and is what *Run Mutation Tests Here* writes
+for one function, and [`samples/dotnet-app`](samples/dotnet-app), a console app
+with no tests, for ***Run App with Coverage…***: what a person reaches by
+running the program.
+
 ## Regenerating coverage yourself (optional)
 
 If you have a C toolchain installed, you can regenerate the tracefiles from
@@ -120,6 +129,8 @@ workloads named below. Only the GCC side and Docker come from elsewhere.
 | `coverage: C (clang, …)`, the clang half of `C cross-check`, `C++ (clang++, …)` | `clang`, `llvm-profdata`, `llvm-cov`, and the MSVC libraries clang links its profile runtime against | *Desktop development with C++* with its *C++ Clang Compiler for Windows* component. MC/DC needs clang 18 or newer, which it is. The installer does not put `VC\Tools\Llvm\x64\bin` on PATH; do that yourself. |
 | `coverage: C++ MSVC` | `cl`, `link /PROFILE`, Microsoft's code coverage collector | *Desktop development with C++*. The collector ships with the Enterprise edition; on the others the script uses `dotnet tool install -g dotnet-coverage`, the same collector. |
 | `coverage: .NET`, `coverage: Visual Basic`, `test: .NET`, `test: Visual Basic` | `dotnet` with the .NET 10 SDK; Coverlet is a package reference of the test projects | *.NET desktop development*. |
+| `coverage: .NET console app`, `mutation: .NET` | `dotnet` with the .NET 10 SDK; `dotnet-coverage` for the app, `dotnet-stryker` for the mutation run (`dotnet tool install -g …`); `sh` for the scripts | as above |
+| `coverage: C gcc 14` | `gcc` 14 or newer and its `gcov`, with `sh` for `generate.sh` | Not in Visual Studio: MinGW-w64 GCC, as for `coverage: C (gcc)` |
 | `coverage: JavaScript`, `coverage: TypeScript`, `test: JavaScript`, `test: TypeScript` | `node` 20 or newer and `npm` | *Node.js development*, or nodejs.org. |
 | `coverage: Python`, `test: Python` | `python` 3 with the `coverage` package (`pip install coverage`) | *Python development*, or python.org. |
 | `coverage: JavaScript`, `coverage: Python`, `lab: …` | a POSIX `sh` for the `generate.sh` scripts, taken from Git Bash | the *Git for Windows* component, or gitforwindows.org. The tasks expect `C:\Program Files\Git\bin\bash.exe`; four lines in `tasks.json` say where. |
