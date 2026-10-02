@@ -87,6 +87,29 @@ for one function, and [`samples/dotnet-app`](samples/dotnet-app), a console app
 with no tests, for ***Run App with Coverage…***: what a person reaches by
 running the program.
 
+## On the command line
+
+The same reader runs without an editor: `npm install -g fucini-coverage`
+(free; Windows, Linux, WSL and macOS). Every sample's `.vscode/settings.json`
+is read as the editors read it, so from a sample's folder the reports load by
+themselves:
+
+```sh
+cd samples/c
+fucini-coverage summary                              # the totals and every file
+fucini-coverage check --lines 80 --branches 70       # exit 1 below a threshold: the gate for a pipeline
+fucini-coverage export --format markdown --stdout    # the summary for a pull request
+fucini-coverage compare --baseline coverage/lcov.info coverage/coverage.json
+fucini-coverage report --out coverage-report         # the HTML report; open index.html
+cd ../dotnet
+fucini-coverage check --lines 50 --mutation 40       # the mutation score of the Stryker report is a gate too
+fucini-coverage mcp                                  # the six tools for an AI agent, over this run
+```
+
+`fucini-coverage help <command>` explains each; the full page is
+[fucini-coverage on npm](https://www.npmjs.com/package/fucini-coverage). The
+tasks `cli: summary…` and `cli: check…` run the first two on the sample you
+pick.
 ## Regenerating coverage yourself (optional)
 
 If you have a C toolchain installed, you can regenerate the tracefiles from

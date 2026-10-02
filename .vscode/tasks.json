@@ -132,6 +132,26 @@
       "problemMatcher": "$msCompile"
     },
 
+    // ---- The command line: fucini-coverage on a sample's reports ------------
+    {
+      "label": "cli: summary…",
+      "detail": "fucini-coverage summary in the sample you pick: the totals and every file, from the reports its settings name. Needs npm install -g fucini-coverage (free).",
+      "type": "shell",
+      "command": "fucini-coverage summary",
+      "options": { "cwd": "${workspaceFolder}/samples/${input:cliSample}" },
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "cli: check…",
+      "detail": "fucini-coverage check --lines 80 --branches 70 in the sample you pick: exit 1 below a threshold, the gate a pipeline fails on.",
+      "type": "shell",
+      "command": "fucini-coverage check --lines 80 --branches 70",
+      "options": { "cwd": "${workspaceFolder}/samples/${input:cliSample}" },
+      "group": "test",
+      "problemMatcher": []
+    },
+
     // ---- JavaScript, TypeScript, Python: samples/js, samples/ts, samples/python
     {
       "label": "coverage: JavaScript (nyc)",
@@ -288,6 +308,14 @@
       "type": "pickString",
       "description": "Which sample to regenerate in its lab image?",
       "options": ["c", "c-gcc14", "cpp", "js", "ts", "python", "dotnet", "dotnet-app", "vb"],
+      "default": "c"
+    },
+    {
+      // Every sample with reports of its own, for the cli: tasks.
+      "id": "cliSample",
+      "type": "pickString",
+      "description": "Which sample to run fucini-coverage in?",
+      "options": ["c", "c-cross-check", "c-gcc14", "cpp", "cpp-msvc", "js", "ts", "python", "dotnet", "dotnet-app", "vb"],
       "default": "c"
     },
     {
