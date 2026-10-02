@@ -1,0 +1,17 @@
+{
+  // Console-app sample settings for Fucini Coverage Studio.
+
+  "fuciniCoverage.coverageFile.defaultLocation": "${workspaceFolder}/coverage",
+  // What "Run App with Coverage…" writes: Microsoft's collector, Cobertura
+  // format, under coverage/app. The committed report is one plain run; the
+  // next run from the editor replaces it, and the editor reloads as it lands.
+  "fuciniCoverage.coverageFile.paths": ["app/coverage.cobertura.xml"],
+  // The committed report was written in the lab image, where this repository
+  // is mounted at /work. This maps that prefix back to wherever you cloned it.
+  "fuciniCoverage.pathRemap": [{ "from": "/work/samples/dotnet-app", "to": "${workspaceRoot}" }],
+  // Red, amber and green in the gutter from the first open: the discount
+  // above a hundred and the refund are what a plain run never reaches.
+  "fuciniCoverage.editorGutter.mode": "coverage",
+  "fuciniCoverage.hitCounts.inline": true,
+  "fuciniCoverage.watch.enabled": true
+}
