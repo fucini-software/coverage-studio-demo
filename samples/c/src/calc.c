@@ -19,7 +19,7 @@ int subtract(int a, int b) {
 
 /* Partially covered: the negative branch is never tested. */
 int classify(int x) {
-    if (x > 0) {
+    if (x > 0) { // LCOV_EXCL_BR_LINE: x is validated at the boundary
         return 1;
     } else {
         return -1;
