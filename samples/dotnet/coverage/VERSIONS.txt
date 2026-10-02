@@ -1,3 +1,4 @@
 - dotnet 10.0.401
 - 18.11.2+be7bc8830b6e477b1f66d951a326edfe2994abb5
 - coverlet.msbuild 6.0.4
+- dotnet-stryker 5.0.0

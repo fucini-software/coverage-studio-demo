@@ -4,6 +4,7 @@ build/
 bin/
 obj/
 target/
+StrykerOutput/
 node_modules/
 __pycache__/
 *.gcda

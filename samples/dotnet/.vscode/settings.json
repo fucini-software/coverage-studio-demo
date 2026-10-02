@@ -12,7 +12,11 @@
   // want them — '**' stands for any depth, and a report written under that
   // folder later loads as it lands (Coverage Studio 1.2026.6 or later) — so
   // the numbers above stand alone until then (see README.md).
-  "fuciniCoverage.coverageFile.paths": ["coverage.opencover.xml"],
+  // The mutation report beside it: Stryker.NET's, from one run over the
+  // library (generate.sh). It carries no lines of its own, only which mutants
+  // survived, so it adds the mutation score and the marks in the editor to
+  // the numbers above and changes none of them.
+  "fuciniCoverage.coverageFile.paths": ["coverage.opencover.xml", "mutation-report.json"],
   // The reports were generated in the lab image, where this repository is
   // mounted at /work. This maps that prefix back to wherever you cloned it.
   "fuciniCoverage.pathRemap": [{ "from": "/work/samples/dotnet", "to": "${workspaceRoot}" }],

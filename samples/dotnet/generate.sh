@@ -43,10 +43,20 @@ for class in Pricing.Tests.QuoteTests Pricing.Tests.ShippingTests; do
   find "$dir" -mindepth 1 -type d -exec rm -rf {} +
 done
 
+# Stryker.NET over the library, from the test project that reaches it — the
+# run "Run Mutation Tests Here" makes for one function, here for the whole
+# file. The report lands under StrykerOutput/<time>/reports and is moved up.
+rm -rf StrykerOutput
+dotnet stryker --test-project test/Pricing.Tests/Pricing.Tests.csproj --project Pricing.csproj \
+  --reporter json --reporter progress
+mv StrykerOutput/*/reports/mutation-report.json coverage/mutation-report.json
+rm -rf StrykerOutput
+
 {
   echo "- dotnet $(dotnet --version)"
   echo "- $(dotnet-coverage --version | head -n 1)"
+  echo "- dotnet-stryker $( (dotnet tool list -g; dotnet tool list --tool-path /opt/dotnet-tools) 2>/dev/null | awk '/^dotnet-stryker/ {print $2; exit}')"
   echo "- coverlet.msbuild $(sed -n 's/.*coverlet.msbuild" Version="\([^"]*\)".*/\1/p' test/Pricing.Tests/Pricing.Tests.csproj)"
 } > coverage/VERSIONS.txt
 
-echo "Wrote coverage/ (OpenCover, Cobertura, dotnet-coverage XML, one Cobertura per test class under per-test/)."
+echo "Wrote coverage/ (OpenCover, Cobertura, dotnet-coverage XML, one Cobertura per test class under per-test/, and the mutation report)."

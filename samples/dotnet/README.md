@@ -58,6 +58,20 @@ Under the tree of the Coverage window, **Risk hotspots** names `Price` first.
   `fuciniCoverage.testRun.perTest` writes. The suite is two classes for this
   reason: `QuoteTests` reaches `Price`, `ShippingTests` reaches `Shipping`.
 
+- `coverage/mutation-report.json`: Stryker.NET's report of one run over the
+  library, loaded by default beside the OpenCover file. It has no lines of its
+  own — only which mutants of `Quote.cs` the suite killed and which survived —
+  so it adds the mutation score and the marks without moving a number above.
+
+## Would a test notice
+
+Open `Quote.cs` with the mutation report loaded: a surviving mutant is a wavy
+underline with a note after the line (`1 mutant(s) untested`), and the hover
+names the change no test failed for — `>` to `>=` on a boundary, a discount
+factor altered. The Coverage view's *Mutation* column says the score. Put the
+caret in `Price` and run **Run Mutation Tests Here**: Stryker.NET mutates
+that one method, from the test project that reaches it, and its report
+replaces the committed one when the run ends (about a minute).
 ## Which tests ran this line
 
 Load the per-test reports — *Pick Coverage File…* on the folder
